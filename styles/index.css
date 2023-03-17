@@ -8,6 +8,8 @@
     background-color: #000;
     display: flex;
     flex-direction: column;
+    margin: auto;
+    position: relative;
 }
 
 .header{
@@ -28,15 +30,14 @@
 .profile{
     position: relative;
     margin: auto;
+    margin-bottom: 4%;
     display: flex;
     width: 68.8%;
-    outline: 2px solid white;
 }
 
 .profile__image-container{
     display: flex;
     width: 13.8%;
-    outline: 2px solid white;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -51,13 +52,40 @@
     margin: 0;
     margin-left: 5%;
     width: 45%;
-    outline: 2px solid blue;
+    height: fit-content;
+    align-self: center;
 }
 
+.profile__name{
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.33;
+    color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.profile__profession{
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #FFFFFF;
+}
 .profile__edit-button{
     width: 3.5%;
     height: 3.5%;
-    margin-top: 5.3%;
+    margin-top: 4.4%;
+}
+
+.profile__edit-button:hover{
+    opacity: .6;
 }
 
 .profile__add-button{
@@ -65,5 +93,106 @@
     right: 0;
     align-self: center;
     width: 17.1%;
-
 }
+
+.profile__add-button:hover{
+    opacity: .6;
+}
+
+.cards{
+    margin: auto;
+    width: 68.8%;
+    display: grid;
+    grid-template-columns: repeat(3 , 280px);
+    grid-template-rows: repeat(2 , 361px);
+    grid-gap: 2.3%;
+    margin-bottom: 4%;
+}
+
+.card{
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card__trash-button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.card__trash-button:hover{
+    opacity: .6;
+}
+
+.card__image-container{
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+.card__image{
+    width: 100%;
+    height: 100%;
+}
+
+.card__info-container{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    background: #FFFFFF;
+    justify-content: center;
+}
+.card__title-container{
+    width: 70%;
+    height: fit-content;
+    margin: 0;
+    display: flex;
+    align-self: center;
+}
+
+.card__title{
+    display: inline-block;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #000000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card__like-button-container{
+    display: flex;
+    width: 10%;
+}
+
+.card__like-button{
+    margin: auto;
+}
+
+.card__like-button:hover{
+   opacity: .6;
+}
+
+.footer{
+    margin: auto;
+    width: 68.8%;
+    border-top: 1px solid #545454;
+    display: flex;
+}
+
+.footer__text{
+    margin: auto;
+    margin-top: 2%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    color: #FFFFFF;
+}
+
