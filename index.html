@@ -9,6 +9,16 @@
     <title>Alrededor de los EE.UU.</title>
 </head>
 <body class="root">
+    <div class="overlay_hidden"></div>   
+    <section class="profile__edit-form-container_hidden">
+        <h2 class="profile__edit-form-header">Edit Profile</h2>
+        <img class="profile__edit-form-close-button" src="./images/Close button.png" alt="Close Button">
+        <form class="profile__edit-form">
+            <input class="profile__input-name" type="text" required>
+            <input class="profile__input-profession" type="text" required>
+            <button class="profile__submit-button" type="submit">Save</button>
+        </form>
+    </section>
     <section class="header">
         <img class="header__logo" src="./images/Logo.svg" alt="Logo Alrededor De USA">
     </section>
@@ -17,11 +27,13 @@
             <img class="profile__image" src="./images/profile-pic.jpg" alt="Foto de perfil">
         </div>
         <div class="profile__info">
-            <h1 class="profile__name">Aldo Israel Navarro Vargas</h1>
-            <h3 class="profile__profession">Programador</h3>
+            <h1 class="profile__name"></h1>
+            <h3 class="profile__profession"></h3>
         </div>
         <img class="profile__edit-button" src="./images/Edit Button.svg">
-        <img class="profile__add-button" src="./images/Add Button.svg">
+        <div class="profile__add-button-container">
+            <img class="profile__add-button" src="./images/Add Button.svg">
+        </div>
     </section>
     <section class="cards">
         <div class="card">
@@ -111,6 +123,7 @@
     </section>
     <footer class="footer">
         <h2 class="footer__text">Practicum © 2023. Aldo I. Navarro V</h2>
-    </footer>
+    </footer> 
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
