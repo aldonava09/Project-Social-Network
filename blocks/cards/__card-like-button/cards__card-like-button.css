@@ -1,0 +1,12 @@
+.cards__card-like-button-container{
+    display: flex;
+    width: 10%;
+}
+
+.cards__card-like-button{
+    margin: auto;
+}
+
+.cards__card-like-button:hover{
+   opacity: .6;
+}

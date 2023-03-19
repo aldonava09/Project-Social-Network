@@ -1,0 +1,35 @@
+.profile__input-name{
+    border: 0;
+    border-bottom: 1px solid #000000;
+    opacity: 0.8;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #C4C4C4;
+    margin-bottom: 9.7%;
+}
+
+.profile__input-name:focus{
+    outline: none;
+    color: #000;
+}
+
+.profile__input-profession{
+    border: 0;
+    border-bottom: 1px solid #000000;
+    opacity: 0.8;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #C4C4C4;
+    margin-bottom: 15.7%;
+}
+
+.profile__input-profession:focus{
+    outline: none;
+    color: #000;
+}

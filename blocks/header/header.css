@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    margin: auto;
+    margin-top: 3.52%;
+    margin-bottom: 3.13%;
+    width: 68.8%;
+    border-bottom: 1px solid #545454;
+}
+
+.header__logo{
+    align-self: center;
+    margin: 0;
+    margin-bottom: 4.7%;
+}

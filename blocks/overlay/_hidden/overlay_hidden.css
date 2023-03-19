@@ -1,0 +1,9 @@
+.overlay_hidden{
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    opacity: 0.5;
+    position: absolute;
+    z-index: 100;
+    display: none;
+}

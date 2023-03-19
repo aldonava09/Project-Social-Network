@@ -1,0 +1,49 @@
+.profile__edit-form-container_hidden{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    width: 30%;
+    height: fit-content;
+    margin: auto;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+}
+
+.profile__edit-form-container{
+    display: flex;
+}
+
+.profile__edit-form-header{
+    align-self: center;
+    width: 80%;
+    margin: 0;
+    margin-top: 9%;
+    margin-bottom: 14.1%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.profile__edit-form{
+    width: 80%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__edit-form-close-button{
+    width: 5%;
+    height: auto;
+    position: absolute;
+    top: -23px;
+    right: -23px;
+}

@@ -1,0 +1,7 @@
+@media screen and (max-width:768px) {
+    .profile__edit-form-container_hidden{
+        top: 300px;
+        bottom: auto;
+        width: 50%;
+    }
+}
