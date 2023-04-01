@@ -1,12 +1,17 @@
 .cards__card-like-button-container{
     display: flex;
     width: 10%;
+    justify-content: center;
+    background-image: url(../../../images/Like-button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.cards__card-like-button{
-    margin: auto;
-}
-
-.cards__card-like-button:hover{
+.cards__card-like-button-container:hover{
    opacity: .6;
+}
+
+
+.cards__card-like-button-container_active{
+    background-image: url(../../../images/Like-Button-Active.svg);
 }

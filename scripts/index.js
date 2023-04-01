@@ -37,6 +37,7 @@ function editProfaileValues(evt) {
 
 profileSubmitButton.addEventListener("click" , editProfaileValues);
 
+
 const addNewImgButton = document.querySelector('.profile__add-button-container');
 const closeNewPlaceButton = document.querySelector('.profile__new-place-form-close-button');
 const newPlaceFormContainer = document.querySelector('.profile__new-place-form-container_hidden');
@@ -50,16 +51,41 @@ function addNewImgOpen() {
 
 addNewImgButton.addEventListener("click", addNewImgOpen);
 closeNewPlaceButton.addEventListener("click", addNewImgOpen);
+
+
 const cardTitleInput = document.querySelector('.profile__new-place-input-title');
 const cardLinkInput = document.querySelector('.profile__new-place-input-image-link');
+const newPlaceSubmitButton = document.querySelector('.profile__new-place-submit-button');
 const cards = document.querySelector(".cards");
-const cardTemplate = document.querySelector("#card-template").content;
-const card = cardTemplate.querySelector(".cards__card").cloneNode(true);
+
+
+function addCards () { 
+
+    const cardTemplate = document.querySelector("#card-template").content;
+    const cardElement = cardTemplate.querySelector(".cards__card").cloneNode(true);
+    cardElement.querySelector(".cards__card-title").textContent = cardTitleInput.value;
+    cardElement.querySelector(".cards__card-image").src = cardLinkInput.value;
+    cards.prepend(cardElement);
+
+    const likeButton = document.querySelector('.cards__card-like-button-container');
+   
+    function likeButtonActive() {
+   
+       likeButton.classList.toggle("cards__card-like-button-container_active");
+    
+   }
+    likeButton.addEventListener("click", likeButtonActive);
+ }
+
+ newPlaceSubmitButton.addEventListener("click", addCards);
+
+ 
+
 
 const initialCards = [
     {
       name: "Nueva York, Nueva York",
-      link: "../"
+      link: ""
     },
     {
       name: "Lago Louise",
