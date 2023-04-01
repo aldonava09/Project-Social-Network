@@ -23,6 +23,7 @@
 @import url(../blocks/profile/__profession/profile__profession.css);
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__new-place-form/profile__new-place-form.css);
 
 /*import cards at-rules*/
 @import url(../blocks/cards/cards.css);

@@ -4,4 +4,11 @@
         bottom: auto;
         width: 50%;
     }
+
+    .profile__new-place-form-container_hidden{
+        top: 300px;
+        bottom: auto;
+        width: 50%;
+    }
+
 }

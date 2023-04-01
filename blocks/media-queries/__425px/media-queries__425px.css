@@ -13,6 +13,12 @@
         bottom: auto;
     }
 
+    .profile__new-place-form-container_hidden{
+        top: 320px;
+        width: 70%;
+        bottom: auto;
+    }
+
     .profile{
         width: 90%;
         flex-wrap: wrap;

@@ -21,6 +21,15 @@
             <button class="profile__submit-button" type="submit">Save</button>
         </form>
     </section>
+    <section class="profile__new-place-form-container_hidden">
+        <h2 class="profile__new-place-form-header">New Place</h2>
+        <img class="profile__new-place-form-close-button" src="./images/Close-button.png" alt="Close Button">
+        <form class="profile__new-place-form">
+            <input class="profile__new-place-input-title" type="text" placeholder="Titulo">
+            <input class="profile__new-place-input-image-link" type="text" placeholder="Enlace a la imagen">
+            <button class="profile__new-place-submit-button" type="submit">Add</button>
+        </form>
+    </section>
     <div class="header">
         <img class="header__logo" src="./images/Logo.svg" alt="Logo Alrededor De USA">
     </div>
@@ -38,20 +47,22 @@
         </div>
     </section>
     <section class="cards">
-        <div class="cards__card">
-            <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-            <div class="cards__card-image-container">
-                <img class="cards__card-image" src="./images/new-york.jpg" alt="Imagen de la estatua de la libertad Nueva York">
-            </div>
-            <div class="cards__card-info-container">
-                <div class="cards__card-title-container">
-                    <h2 class="cards__card-title">Nueva York, Nueva York</h2>
+        <template id="card-template">
+            <div class="cards__card">
+                <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
+                <div class="cards__card-image-container">
+                    <img class="cards__card-image" src="./images/new-york.jpg" alt="Imagen de la estatua de la libertad Nueva York">
                 </div>
-                <div class="cards__card-like-button-container">
-                    <img class="cards__card-like-button" src="./images/Like-button.svg" alt="Like-button">
+                <div class="cards__card-info-container">
+                    <div class="cards__card-title-container">
+                        <h2 class="cards__card-title">Nueva York, Nueva York</h2>
+                    </div>
+                    <div class="cards__card-like-button-container">
+                        <img class="cards__card-like-button" src="./images/Like-button.svg" alt="Like-button">
+                    </div>
                 </div>
             </div>
-        </div>
+        </template>
         <div class="cards__card">
             <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
             <div class="cards__card-image-container">
