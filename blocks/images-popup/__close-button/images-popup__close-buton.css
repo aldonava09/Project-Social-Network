@@ -1,0 +1,9 @@
+.images-popup__close-button{
+    width: 4%;
+    height: auto;
+    max-width: 40px;
+    max-height: 40px;
+    position: absolute;
+    top: -5%;
+    right: -5%;
+}

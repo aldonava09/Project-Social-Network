@@ -46,84 +46,12 @@
             <img class="profile__add-button" src="./images/Add-Button.svg" alt="Add-Button">
         </div>
     </section>
-    <section class="cards">
-        <div class="cards__card">
-            <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-            <div class="cards__card-image-container">
-                <img class="cards__card-image" src="./images/new-york.jpg" alt="Imagen las letras de hollywood">
-            </div>
-            <div class="cards__card-info-container">
-                <div class="cards__card-title-container">
-                    <h2 class="cards__card-title">New York, New York</h2>
-                </div>
-                <div class="cards__card-like-button-container"></div>
-            </div>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-            <div class="cards__card-image-container">
-                <img class="cards__card-image" src="./images/hollywood.jpg" alt="Imagen las letras de hollywood">
-            </div>
-            <div class="cards__card-info-container">
-                <div class="cards__card-title-container">
-                    <h2 class="cards__card-title">Hollywood, Los Angeles</h2>
-                </div>
-                <div class="cards__card-like-button-container"></div>
-            </div>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-            <div class="cards__card-image-container">
-                <img class="cards__card-image" src="./images/miami.jpg" alt="Imagen las letras de hollywood">
-            </div>
-            <div class="cards__card-info-container">
-                <div class="cards__card-title-container">
-                    <h2 class="cards__card-title">Miami, Florida</h2>
-                </div>
-                <div class="cards__card-like-button-container"></div>
-            </div>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-            <div class="cards__card-image-container">
-                <img class="cards__card-image" src="./images/san-fransisco.jpg" alt="Imagen puente de San Francisco">
-            </div>
-            <div class="cards__card-info-container">
-                <div class="cards__card-title-container">
-                    <h2 class="cards__card-title">San Francisco, California</h2>
-                </div>
-                <div class="cards__card-like-button-container"></div>
-            </div>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-            <div class="cards__card-image-container">
-                <img class="cards__card-image" src="./images/seattle.jpg" alt="Imagen libreria de Seattle">
-            </div>
-            <div class="cards__card-info-container">
-                <div class="cards__card-title-container">
-                    <h2 class="cards__card-title">Seattle, Washington</h2>
-                </div>
-                <div class="cards__card-like-button-container"></div>
-            </div>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-            <div class="cards__card-image-container">
-                <img class="cards__card-image" src="./images/wyomig.jpg" alt="Imagen borde de un lago en Wyoming">
-            </div>
-            <div class="cards__card-info-container">
-                <div class="cards__card-title-container">
-                    <h2 class="cards__card-title">Salt Lake City, Wyoming</h2>
-                </div>
-                <div class="cards__card-like-button-container"></div>
-            </div>
-        </div>
+    <div class="cards">
         <template id="card-template">
             <div class="cards__card">
-                <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
+                    <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
                 <div class="cards__card-image-container">
-                    <img class="cards__card-image" src="" alt="Imagen de la estatua de la libertad Nueva York">
+                    <img class="cards__card-image" src="" alt="foto de la publicacion">
                 </div>
                 <div class="cards__card-info-container">
                     <div class="cards__card-title-container">
@@ -133,7 +61,16 @@
                 </div>
             </div>
         </template>
-    </section>
+    </div>
+    <div class="images-popup__container">
+        <template id="images-popup__template">
+            <div class="images-popup-hidden">
+                <img class="images-popup__image" src="" alt="images-popup">
+                <h3 class="images-popup__title"></h3>
+                <img class="images-popup__close-button" src="./images/Close-button.png" alt="Close-button">
+            </div>
+        </template>
+    </div>
     <footer class="footer">
         <h2 class="footer__text">Practicum © 2023. Aldo I. Navarro V</h2>
     </footer> 

@@ -2,8 +2,9 @@
     width: 100vw;
     height: 100vh;
     background: #000000;
-    opacity: 0.5;
     position: absolute;
     z-index: 100;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all linear .5s;
 }

@@ -55,6 +55,11 @@
         margin-bottom: 5%;    
     }
 
+    .images-popup-hidden{
+        top: 450px;
+        bottom: auto;
+    }
+
     .footer{
         width: 100%;
     }
