@@ -1,11 +1,11 @@
 const editProfileButton = document.querySelector('.profile__edit-button');
-const closeProfileButton = document.querySelector('.profile__edit-form-close-button');
-const profileFormContainer = document.querySelector('.profile__edit-form-container_hidden');
-const overlay = document.querySelector('.overlay_hidden');
+const closeProfileButton = document.querySelector('.edit-profile__close-button');
+const profileFormContainer = document.querySelector('.edit-profile');
+const overlay = document.querySelector('.overlay');
 
 function editProfileOpen() {
-    profileFormContainer.classList.toggle('profile__edit-form-container');
-    overlay.classList.toggle('overlay');
+    profileFormContainer.classList.toggle('edit-profile-visible');
+    overlay.classList.toggle('overlay-visible');
 }
 
 editProfileButton.addEventListener('click' , editProfileOpen);
@@ -13,39 +13,37 @@ closeProfileButton.addEventListener('click' , editProfileOpen);
 
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
-const profileNameInput = document.querySelector('.profile__input-name');
-const profileProfessionInput = document.querySelector('.profile__input-profession');
+const profileNameInput = document.querySelector('.edit-profile__form-input-name');
+const profileProfessionInput = document.querySelector('.edit-profile__form-input-profession');
 
 profileName.textContent = 'Aldo Navarro'
 profileProfession.textContent = 'Programador'
 
-const profileSubmitButton = document.querySelector('.profile__submit-button');
+const profileSubmitButton = document.querySelector('.edit-profile__form-submit-button');
 
 function editProfaileValues(evt) {
     evt.preventDefault();
     profileName.textContent = profileNameInput.value;
     profileProfession.textContent = profileProfessionInput.value;
-    profileFormContainer.classList.toggle('profile__edit-form-container');
-    overlay.classList.toggle('overlay');
 }
 
 profileSubmitButton.addEventListener('click' , editProfaileValues);
 
 const addNewImgButton = document.querySelector('.profile__add-button-container');
-const closeNewPlaceButton = document.querySelector('.profile__new-place-form-close-button');
-const newPlaceFormContainer = document.querySelector('.profile__new-place-form-container_hidden');
+const closeNewPlaceButton = document.querySelector('.new-place__close-button');
+const newPlaceFormContainer = document.querySelector('.new-place');
 
 function addNewImgOpen() {
-    newPlaceFormContainer.classList.toggle('profile__new-place-form-container');
-    overlay.classList.toggle('overlay');
+    newPlaceFormContainer.classList.toggle('new-place-visible');
+    overlay.classList.toggle('overlay-visible');
 }  
 
 addNewImgButton.addEventListener('click', addNewImgOpen);
 closeNewPlaceButton.addEventListener('click', addNewImgOpen);
 
-const cardTitleInput = document.querySelector('.profile__new-place-input-title');
-const cardLinkInput = document.querySelector('.profile__new-place-input-image-link');
-const newPlaceSubmitButton = document.querySelector('.profile__new-place-submit-button');
+const cardTitleInput = document.querySelector('.new-place__form-input-title');
+const cardLinkInput = document.querySelector('.new-place__form-input-image-link');
+const newPlaceSubmitButton = document.querySelector('.new-place__form-submit-button');
 const cards = document.querySelector('.cards');
 let likeButton = document.querySelectorAll('.cards__card-like-button-container');
 let deleteButton = document.querySelectorAll('.cards__card-trash-button');
@@ -92,11 +90,11 @@ initialCards.forEach(el =>{
     imagePopUp.querySelector('.images-popup__image').src = el.link;;
     imagePopUp.querySelector('.images-popup__title').textContent = el.name;
     imagesPopUpContainer.prepend(imagePopUp);
-    overlay.classList.toggle('overlay');
+    overlay.classList.toggle('overlay-visible');
     imagePopUp.classList.toggle('images-popup');
 
     popUpCloseButton.addEventListener('click', function closePopUp(){
-      overlay.classList.remove('overlay');
+      overlay.classList.remove('overlay-visible');
       imagePopUp.remove();
     });
   }
@@ -148,11 +146,11 @@ function addCards () {
       imagePopUp.querySelector('.images-popup__image').src = cardLinkInput.value;
       imagePopUp.querySelector('.images-popup__title').textContent = cardTitleInput.value;
       imagesPopUpContainer.prepend(imagePopUp);
-      overlay.classList.toggle('overlay');
+      overlay.classList.toggle('overlay-visible');
       imagePopUp.classList.toggle('images-popup');
   
       popUpCloseButton.addEventListener('click', function closePopUp(){
-        overlay.classList.remove('overlay');
+        overlay.classList.remove('overlay-visible');
         imagePopUp.remove();
       });
     }

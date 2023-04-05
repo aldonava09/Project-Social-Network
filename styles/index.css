@@ -12,18 +12,26 @@
 /*import header at-rules*/
 @import url(../blocks/header/header.css);
 
+/*import edit-profile at-rules*/
+@import url(../blocks/edit-profile/edit-profile.css);
+@import url(../blocks/edit-profile/__header/edit-profile__header.css);
+@import url(../blocks/edit-profile/__form/edit-profile__form.css);
+@import url(../blocks/edit-profile/__close-button/edit-profile__close-button.css);
+
+/*import new-place at-rules*/
+@import url(../blocks/new-place/new-place.css);
+@import url(../blocks/new-place/__header/new-place__header.css);
+@import url(../blocks/new-place/__form/new-place__form.css);
+@import url(../blocks/new-place/__close-button/new-place__close-button.css);
+
 /*import profile at-rules*/
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__edit-form/profile__edit-form.css);
-@import url(../blocks/profile/__input/profile__input.css);
-@import url(../blocks/profile/__submit-button/profile__submit-button.css);
 @import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__profession/profile__profession.css);
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
-@import url(../blocks/profile/__new-place-form/profile__new-place-form.css);
 
 /*import cards at-rules*/
 @import url(../blocks/cards/cards.css);

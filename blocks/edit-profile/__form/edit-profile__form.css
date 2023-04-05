@@ -1,0 +1,60 @@
+.edit-profile__form{
+    width: 80%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-profile__form-input-name{
+    border: 0;
+    border-bottom: 1px solid #000000;
+    opacity: 0.8;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #C4C4C4;
+    margin-bottom: 9.7%;
+}
+
+.edit-profile__form-input-name:focus{
+    outline: none;
+    color: #000;
+}
+
+.edit-profile__form-input-profession{
+    border: 0;
+    border-bottom: 1px solid #000000;
+    opacity: 0.8;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #C4C4C4;
+    margin-bottom: 15.7%;
+}
+
+.edit-profile__form-input-profession:focus{
+    outline: none;
+    color: #000;
+}
+
+.edit-profile__form-submit-button{
+    background: #000000;
+    border-radius: 2px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 11.75%;
+}
+
+.edit-profile__form-submit-button:hover{
+    background: rgba(0, 0, 0, 0.8);
+}
