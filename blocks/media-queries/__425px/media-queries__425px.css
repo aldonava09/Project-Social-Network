@@ -7,13 +7,13 @@
         margin-left: 4.7%;
     }
 
-    .profile__edit-form-container_hidden{
+    .edit-profile{
         top: 320px;
         width: 70%;
         bottom: auto;
     }
 
-    .profile__new-place-form-container_hidden{
+    .new-place{
         top: 320px;
         width: 70%;
         bottom: auto;
