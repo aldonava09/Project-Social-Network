@@ -1,0 +1,51 @@
+.images-popup__item{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    visibility: hidden;
+    opacity: 0;
+    transition: all linear .5s;
+}
+
+.images-popup-item-visible{
+    visibility: visible;
+    opacity: 1;
+    transition: all linear .5s;
+}
+
+.images-popup__item-image{
+    width: 100%;
+    height: auto;
+    max-width: 75vw;
+    max-height: 75vh;
+}
+
+.images-popup__item-title{
+    display: inline-block;
+    margin: 0;
+    margin-top: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #FFFFFF;
+}
+
+.images-popup__item-close-button{
+    width: 4%;
+    height: auto;
+    max-width: 40px;
+    max-height: 40px;
+    position: absolute;
+    top: -5%;
+    right: -5%;
+}

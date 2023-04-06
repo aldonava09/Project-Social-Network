@@ -42,11 +42,7 @@
 @import url(../blocks/cards/__card-like-button/cards__card-like-button.css);
 
 /*import images-popup at-rules*/
-@import url(../blocks/images-popup/images-popup.css);
-@import url(../blocks/images-popup/__image/images-popup__image.css);
-@import url(../blocks/images-popup/__title/images-popup__title.css);
-@import url(../blocks/images-popup/__close-button/images-popup__close-buton.css);
-
+@import url(../blocks/images-popup/__item/images-popup__item.css);
 
 /*import footer at-rules*/
 @import url(../blocks/footer/footer.css);

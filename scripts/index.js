@@ -83,19 +83,19 @@ initialCards.forEach(el =>{
   cards.prepend(cardElement);
   
   function popUp() {
-    const imagesPopUpContainer = document.querySelector('.images-popup__container');
+    const imagesPopUp = document.querySelector('.images-popup');
     const imagePopUpTemplate = document.querySelector('#images-popup__template').content;
-    const imagePopUp = imagePopUpTemplate.querySelector('.images-popup-hidden').cloneNode(true);
-    let popUpCloseButton = imagePopUp.querySelector('.images-popup__close-button');
-    imagePopUp.querySelector('.images-popup__image').src = el.link;;
-    imagePopUp.querySelector('.images-popup__title').textContent = el.name;
-    imagesPopUpContainer.prepend(imagePopUp);
+    const imagePopUpItem = imagePopUpTemplate.querySelector('.images-popup__item').cloneNode(true);
+    let popUpCloseButton = imagePopUpItem.querySelector('.images-popup__item-close-button');
+    imagePopUpItem.querySelector('.images-popup__item-image').src = el.link;;
+    imagePopUpItem.querySelector('.images-popup__item-title').textContent = el.name;
+    imagesPopUp.prepend(imagePopUpItem);
     overlay.classList.toggle('overlay-visible');
-    imagePopUp.classList.toggle('images-popup');
+    imagePopUpItem.classList.toggle('images-popup-item-visible');
 
     popUpCloseButton.addEventListener('click', function closePopUp(){
       overlay.classList.remove('overlay-visible');
-      imagePopUp.remove();
+      imagePopUpItem.remove();
     });
   }
 
@@ -139,19 +139,19 @@ function addCards () {
     cards.prepend(cardElement);
 
     function popUp() {
-      const imagesPopUpContainer = document.querySelector('.images-popup__container');
+      const imagesPopUp = document.querySelector('.images-popup');
       const imagePopUpTemplate = document.querySelector('#images-popup__template').content;
-      const imagePopUp = imagePopUpTemplate.querySelector('.images-popup-hidden').cloneNode(true);
-      let popUpCloseButton = imagePopUp.querySelector('.images-popup__close-button');
-      imagePopUp.querySelector('.images-popup__image').src = cardLinkInput.value;
-      imagePopUp.querySelector('.images-popup__title').textContent = cardTitleInput.value;
-      imagesPopUpContainer.prepend(imagePopUp);
+      const imagePopUpItem = imagePopUpTemplate.querySelector('.images-popup__item').cloneNode(true);
+      let popUpCloseButton = imagePopUpItem.querySelector('.images-popup__item-close-button');
+      imagePopUpItem.querySelector('.images-popup__item-image').src = cardLinkInput.value;
+      imagePopUpItem.querySelector('.images-popup__item-title').textContent = cardTitleInput.value;
+      imagesPopUp.prepend(imagePopUpItem);
       overlay.classList.toggle('overlay-visible');
-      imagePopUp.classList.toggle('images-popup');
+      imagePopUpItem.classList.toggle('images-popup-item-visible');
   
       popUpCloseButton.addEventListener('click', function closePopUp(){
         overlay.classList.remove('overlay-visible');
-        imagePopUp.remove();
+        imagePopUpItem.remove();
       });
     }
 

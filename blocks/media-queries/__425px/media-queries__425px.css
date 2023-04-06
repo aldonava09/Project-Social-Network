@@ -55,7 +55,7 @@
         margin-bottom: 5%;    
     }
 
-    .images-popup-hidden{
+    .images-popup__item{
         top: 450px;
         bottom: auto;
     }
