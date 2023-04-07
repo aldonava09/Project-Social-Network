@@ -18,8 +18,8 @@ const profileProfessionInput = document.querySelector('.edit-profile__form-input
 
 profileName.textContent = 'Aldo Navarro';
 profileProfession.textContent = 'Programador';
-profileNameInput.placeholder = profileName.textContent;
-profileProfessionInput.placeholder = profileProfession.textContent;
+profileNameInput.value = profileName.textContent;
+profileProfessionInput.value = profileProfession.textContent;
 
 const profileSubmitButton = document.querySelector('.edit-profile__form-submit-button');
 
@@ -27,6 +27,8 @@ function editProfaileValues(evt) {
     evt.preventDefault();
     profileName.textContent = profileNameInput.value;
     profileProfession.textContent = profileProfessionInput.value;
+    profileNameInput.placeholder = profileName.textContent;
+    profileProfessionInput.placeholder = profileProfession.textContent;
 }
 
 profileSubmitButton.addEventListener('click' , editProfaileValues);
