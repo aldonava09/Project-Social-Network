@@ -16,8 +16,10 @@ const profileProfession = document.querySelector('.profile__profession');
 const profileNameInput = document.querySelector('.edit-profile__form-input-name');
 const profileProfessionInput = document.querySelector('.edit-profile__form-input-profession');
 
-profileName.textContent = 'Aldo Navarro'
-profileProfession.textContent = 'Programador'
+profileName.textContent = 'Aldo Navarro';
+profileProfession.textContent = 'Programador';
+profileNameInput.placeholder = profileName.textContent;
+profileProfessionInput.placeholder = profileProfession.textContent;
 
 const profileSubmitButton = document.querySelector('.edit-profile__form-submit-button');
 
