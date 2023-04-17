@@ -1,5 +1,4 @@
 .popup__button_disabled{
-    opacity: 0.2;
     border: 1px solid #000000;
     border-radius: 2px;
     font-family: 'Inter';
@@ -10,6 +9,7 @@
     text-align: center;
     color: #000000;
     background-color: #FFFFFF;
+    opacity: 0.2;
 }
 
 .popup__input_type_error{
