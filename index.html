@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Aldo Israel Navarro Vargas">
-    <meta name="description" content="Pagina web Alrededor de los EE.UU., funciona como un maquetado de una red social, esta es una practica de los conocimientos de html, css y JavaScript.">
-    <meta name="keywords" content="Estados Unidos, Perfil, Profesion">
-    <link rel="stylesheet" href="./styles/index.css">
-    <title>Alrededor de los EE.UU.</title>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Aldo Israel Navarro Vargas">
+   <meta name="description" content="Pagina web Alrededor de los EE.UU., funciona como un maquetado de una red social, esta es una practica de los conocimientos de html, css y JavaScript.">
+   <meta name="keywords" content="Estados Unidos, Perfil, Profesion">
+   <link rel="stylesheet" href="./styles/index.css">
+   <title>Alrededor de los EE.UU.</title>
 </head>
 <body class="root">
-    <div class="overlay"></div>   
-    <section class="edit-profile">
-        <h2 class="edit-profile__header">Edit Profile</h2>
-        <img class="edit-profile__close-button" src="./images/Close-button.png" alt="Close Button">
-        <form class="edit-profile__form">
-            <input class="edit-profile__form-input-name" type="text" placeholder=" ">
-            <input class="edit-profile__form-input-profession" type="text" placeholder=" ">
-            <button class="edit-profile__form-submit-button" type="submit">Save</button>
-        </form>
-    </section>
-    <section class="new-place">
-        <h2 class="new-place__header">New Place</h2>
-        <img class="new-place__close-button" src="./images/Close-button.png" alt="Close Button">
-        <form class="new-place__form">
-            <input class="new-place__form-input-title" type="text" placeholder="Titulo">
-            <input class="new-place__form-input-image-link" type="text" placeholder="Enlace a la imagen">
-            <button class="new-place__form-submit-button" type="button">Add</button>
-        </form>
-    </section>
-    <div class="header">
-        <img class="header__logo" src="./images/Logo.svg" alt="Logo Alrededor De USA">
-    </div>
-    <section class="profile">
-        <div class="profile__image-container">
-            <img class="profile__image" src="./images/profile-pic.jpg" alt="Foto de perfil">
-        </div>
-        <div class="profile__info">
-            <h1 class="profile__name">Aldo Navarro</h1>
-            <h3 class="profile__profession">Programador</h3>
-        </div>
-        <img class="profile__edit-button" src="./images/Edit-Button.svg" alt="Edit-Button">
-        <div class="profile__add-button-container">
-            <img class="profile__add-button" src="./images/Add-Button.svg" alt="Add-Button">
-        </div>
-    </section>
-    <div class="cards">
-        <template id="card-template">
-            <div class="cards__card">
-                    <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
-                <div class="cards__card-image-container">
-                    <img class="cards__card-image" src=" " alt="foto de la publicacion">
-                </div>
-                <div class="cards__card-info-container">
-                    <div class="cards__card-title-container">
-                        <h2 class="cards__card-title"></h2>
-                    </div>
-                    <div class="cards__card-like-button-container"></div>
-                </div>
-            </div>
-        </template>
-    </div>
-    <div class="images-popup">
-        <template id="images-popup__template">
-            <div class="images-popup__item">
-                <img class="images-popup__item-image" src=" " alt="images-popup">
-                <h3 class="images-popup__item-title"></h3>
-                <img class="images-popup__item-close-button" src="./images/Close-button.png" alt="Close-button">
-            </div>
-        </template>
-    </div>
-    <footer class="footer">
-        <h2 class="footer__text">Practicum © 2023. Aldo I. Navarro V</h2>
-    </footer> 
-    <script src="./scripts/index.js"></script>
+   <div class="overlay"></div>  
+   <section class="edit-profile">
+       <h2 class="edit-profile__header">Edit Profile</h2>
+       <img class="edit-profile__close-button" src="./images/Close-button.png" alt="Close Button">
+       <form class="edit-profile__form popup__form" name="editProfile" novalidate>
+           <input class="edit-profile__form-input-name popup__input" id="name" type="text" placeholder="Name" minlength="2" maxlength="40" required>
+           <span class="popup__error popup__error-name"></span>
+           <input class="edit-profile__form-input-profession popup__input" id="profession" type="text" placeholder="Profesion" minlength="2" maxlength="200" required>
+           <span class="popup__error popup__error-profession"></span>
+           <button class="edit-profile__form-submit-button popup__button" type="submit">Save</button>
+       </form>
+   </section>
+   <section class="new-place">
+       <h2 class="new-place__header">New Place</h2>
+       <img class="new-place__close-button" src="./images/Close-button.png" alt="Close Button">
+       <form class="new-place__form popup__form" name="new-place__form">
+           <input class="new-place__form-input-title popup__input " id="title" type="text" placeholder="Titulo" minlength="2" maxlength="30" required>
+           <span class="popup__error popup__error-title"></span>
+           <input class="new-place__form-input-image-link popup__input" id="url" type="url" placeholder="Enlace a la imagen" required>
+           <span class="popup__error popup__error-url"></span>
+           <button class="new-place__form-submit-button popup__button" type="submit">Add</button>
+       </form>
+   </section>
+   <div class="header">
+       <img class="header__logo" src="./images/Logo.svg" alt="Logo Alrededor De USA">
+   </div>
+   <section class="profile">
+       <div class="profile__image-container">
+           <img class="profile__image" src="./images/profile-pic.jpg" alt="Foto de perfil">
+       </div>
+       <div class="profile__info">
+           <h1 class="profile__name">Aldo Navarro</h1>
+           <h3 class="profile__profession">Programador</h3>
+       </div>
+       <img class="profile__edit-button" src="./images/Edit-Button.svg" alt="Edit-Button">
+       <div class="profile__add-button-container">
+           <img class="profile__add-button" src="./images/Add-Button.svg" alt="Add-Button">
+       </div>
+   </section>
+   <div class="cards">
+       <template id="card-template">
+           <div class="cards__card">
+                   <img class="cards__card-trash-button" src="./images/Trash-Button.svg" alt="Trash-button">
+               <div class="cards__card-image-container">
+                   <img class="cards__card-image" src=" " alt="foto de la publicacion">
+               </div>
+               <div class="cards__card-info-container">
+                   <div class="cards__card-title-container">
+                       <h2 class="cards__card-title"></h2>
+                   </div>
+                   <div class="cards__card-like-button-container"></div>
+               </div>
+           </div>
+       </template>
+   </div>
+   <div class="images-popup">
+       <template id="images-popup__template">
+           <div class="images-popup__item">
+               <img class="images-popup__item-image" src=" " alt="images-popup">
+               <h3 class="images-popup__item-title"></h3>
+               <img class="images-popup__item-close-button" src="./images/Close-button.png" alt="Close-button">
+           </div>
+       </template>
+   </div>
+   <footer class="footer">
+       <h2 class="footer__text">Practicum © 2023. Aldo I. Navarro V</h2>
+   </footer>
+   <script src="./scripts/index.js" type="module"></script>
 </body>
 </html>
+
+
