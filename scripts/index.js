@@ -1,23 +1,22 @@
 import{showInputError,  hideInputError, checkInputValidity, setEventListeners, enableValidation} from "./validate.js";
 
-
 const editProfileButton = document.querySelector('.profile__edit-button');
-const closeProfileButton = document.querySelector('.edit-profile__close-button');
-const profileFormContainer = document.querySelector('.edit-profile');
+const closeProfileButton = document.querySelector('.popup__close-button_edit-profile');
+const profileFormContainer = document.querySelector('.popup_edit-profile');
 const overlay = document.querySelector('.overlay');
 
 function editProfileOpen() {
-    profileFormContainer.classList.toggle('edit-profile-visible');
+    profileFormContainer.classList.toggle('popup_visible');
     overlay.classList.toggle('overlay-visible');
     overlay.addEventListener('click', function editProfileClose(){
       overlay.classList.remove('overlay-visible');
-      profileFormContainer.classList.remove('edit-profile-visible');
+      profileFormContainer.classList.remove('popup_visible');
     });
 
     document.addEventListener('keydown', function (evt) {
       if (evt.key === "Escape") {
         overlay.classList.remove('overlay-visible');
-        profileFormContainer.classList.remove('edit-profile-visible');
+        profileFormContainer.classList.remove('popup_visible');
     }});
 
     addEventListener("DOMContentLoaded",() =>{
@@ -42,15 +41,15 @@ closeProfileButton.addEventListener('click' , editProfileOpen);
 
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
-const profileNameInput = document.querySelector('.edit-profile__form-input-name');
-const profileProfessionInput = document.querySelector('.edit-profile__form-input-profession');
+const profileNameInput = document.querySelector('.popup__input_name');
+const profileProfessionInput = document.querySelector('.popup__input_profession');
 
 profileName.textContent = 'Aldo Navarro';
 profileProfession.textContent = 'Programador';
 profileNameInput.value = profileName.textContent;
 profileProfessionInput.value = profileProfession.textContent;
 
-const profileSubmitButton = document.querySelector('.edit-profile__form-submit-button');
+const profileSubmitButton = document.querySelector('.popup__button_edit-profile');
 
 function editProfaileValues(evt) {
     evt.preventDefault();
@@ -64,22 +63,22 @@ profileSubmitButton.addEventListener('click' , editProfaileValues);
 
 
 const addNewImgButton = document.querySelector('.profile__add-button-container');
-const closeNewPlaceButton = document.querySelector('.new-place__close-button');
-const newPlaceFormContainer = document.querySelector('.new-place');
+const closeNewPlaceButton = document.querySelector('.popup__close-button_new-place');
+const newPlaceFormContainer = document.querySelector('.popup_new-place');
 
 function addNewImgOpen(evt) {
     evt.preventDefault()
-    newPlaceFormContainer.classList.toggle('new-place-visible');
+    newPlaceFormContainer.classList.toggle('popup_visible');
     overlay.classList.toggle('overlay-visible');
     overlay.addEventListener('click', function addNewImgClose(){
       overlay.classList.remove('overlay-visible');
-      newPlaceFormContainer.classList.remove('new-place-visible');
+      newPlaceFormContainer.classList.remove('popup_visible');
     });
 
     document.addEventListener('keydown', function (evt) {
       if (evt.key === "Escape") {
         overlay.classList.remove('overlay-visible');
-        newPlaceFormContainer.classList.remove('new-place-visible');
+        newPlaceFormContainer.classList.remove('popup_visible');
       }});
     
       addEventListener("DOMContentLoaded",() =>{
@@ -101,9 +100,9 @@ function addNewImgOpen(evt) {
 addNewImgButton.addEventListener('click', addNewImgOpen);
 closeNewPlaceButton.addEventListener('click', addNewImgOpen);
 
-const cardTitleInput = document.querySelector('.new-place__form-input-title');
-const cardLinkInput = document.querySelector('.new-place__form-input-image-link');
-const newPlaceSubmitButton = document.querySelector('.new-place__form-submit-button');
+const cardTitleInput = document.querySelector('.popup__input_title');
+const cardLinkInput = document.querySelector('.popup__input_url');
+const newPlaceSubmitButton = document.querySelector('.popup__button_new-place');
 const cards = document.querySelector('.cards');
 let likeButton = document.querySelectorAll('.cards__card-like-button-container');
 let deleteButton = document.querySelectorAll('.cards__card-trash-button');

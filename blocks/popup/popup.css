@@ -1,4 +1,4 @@
-.new-place{
+.popup{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -15,12 +15,5 @@
     flex-direction: column;
     visibility: hidden;
     opacity: 0;
-    transition: all linear .5s;
-}
-
-.new-place-visible{
-    display: flex;
-    visibility: visible;
-    opacity: 1;
     transition: all linear .5s;
 }

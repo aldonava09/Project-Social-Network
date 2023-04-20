@@ -11,20 +11,18 @@
 /*import header at-rules*/
 @import url(../blocks/header/header.css);
 
-/*import edit-profile at-rules*/
-@import url(../blocks/edit-profile/edit-profile.css);
-@import url(../blocks/edit-profile/__header/edit-profile__header.css);
-@import url(../blocks/edit-profile/__form/edit-profile__form.css);
-@import url(../blocks/edit-profile/__close-button/edit-profile__close-button.css);
-
-/*import new-place at-rules*/
-@import url(../blocks/new-place/new-place.css);
-@import url(../blocks/new-place/__header/new-place__header.css);
-@import url(../blocks/new-place/__form/new-place__form.css);
-@import url(../blocks/new-place/__close-button/new-place__close-button.css);
-
-/*import validation at-rules*/
-@import url(../blocks/popup-validation/__validation.css);
+/*import popup at-rules*/
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_visible/popup_visible.css);
+@import url(../blocks/popup/__header/popup__header.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input/_type-error/popup__input_type-error.css);
+@import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/__error/_visible/popup__error_visible.css);
+@import url(../blocks/popup/__button/popup__button.css);
+@import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
+@import url(../blocks/popup/__close-button/popup__close-button.css);
 
 /*import profile at-rules*/
 @import url(../blocks/profile/profile.css);

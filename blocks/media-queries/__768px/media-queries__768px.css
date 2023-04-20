@@ -1,14 +1,7 @@
 @media screen and (max-width:768px) {
-    .edit-profile{
+    .popup{
         top: 300px;
         bottom: auto;
         width: 50%;
     }
-
-    .new-place{
-        top: 300px;
-        bottom: auto;
-        width: 50%;
-    }
-
 }

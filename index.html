@@ -12,26 +12,26 @@
 </head>
 <body class="root">
    <div class="overlay"></div>  
-   <section class="edit-profile">
-       <h2 class="edit-profile__header">Edit Profile</h2>
-       <img class="edit-profile__close-button" src="./images/Close-button.png" alt="Close Button">
-       <form class="edit-profile__form popup__form" name="editProfile" novalidate>
-           <input class="edit-profile__form-input-name popup__input" id="name" type="text" placeholder="Name" minlength="2" maxlength="40" required>
-           <span class="popup__error popup__error-name"></span>
-           <input class="edit-profile__form-input-profession popup__input" id="profession" type="text" placeholder="Profesion" minlength="2" maxlength="200" required>
-           <span class="popup__error popup__error-profession"></span>
-           <button class="edit-profile__form-submit-button popup__button" type="submit">Save</button>
+   <section class="popup popup_edit-profile">
+       <h2 class="popup__header">Edit Profile</h2>
+       <img class="popup__close-button popup__close-button_edit-profile" src="./images/Close-button.png" alt="Close Button">
+       <form class="popup__form" name="editProfile" novalidate>
+           <input class="popup__input popup__input_name" id="name" type="text" placeholder="Name" minlength="2" maxlength="40" required>
+           <span class="popup__error popup__error_name"></span>
+           <input class="popup__input popup__input_profession" id="profession" type="text" placeholder="Profesion" minlength="2" maxlength="200" required>
+           <span class="popup__error popup__error_profession"></span>
+           <button class="popup__button popup__button_edit-profile" type="submit">Save</button>
        </form>
    </section>
-   <section class="new-place">
-       <h2 class="new-place__header">New Place</h2>
-       <img class="new-place__close-button" src="./images/Close-button.png" alt="Close Button">
-       <form class="new-place__form popup__form" name="new-place__form">
-           <input class="new-place__form-input-title popup__input " id="title" type="text" placeholder="Titulo" minlength="2" maxlength="30" required>
-           <span class="popup__error popup__error-title"></span>
-           <input class="new-place__form-input-image-link popup__input" id="url" type="url" placeholder="Enlace a la imagen" required>
-           <span class="popup__error popup__error-url"></span>
-           <button class="new-place__form-submit-button popup__button" type="submit">Add</button>
+   <section class="popup popup_new-place">
+       <h2 class="popup__header">New Place</h2>
+       <img class="popup__close-button popup__close-button_new-place" src="./images/Close-button.png" alt="Close Button">
+       <form class="popup__form" name="NewPlace">
+           <input class="popup__input popup__input_title" id="title" type="text" placeholder="Title" minlength="2" maxlength="30" required>
+           <span class="popup__error popup__error_title"></span>
+           <input class="popup__input popup__input_url" id="url" type="url" placeholder="Image URL" required>
+           <span class="popup__error popup__error_url"></span>
+           <button class="popup__button popup__button_new-place" type="submit">Add</button>
        </form>
    </section>
    <div class="header">
