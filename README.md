@@ -22,4 +22,4 @@ Las tecnologías utilizadas para la realización de este proyecto son:
 
 ## Autor
 
-- [@aldonava09](https://github.com/aldonava09)
+- [@aldonava09](https://github.com/aldonava09).
