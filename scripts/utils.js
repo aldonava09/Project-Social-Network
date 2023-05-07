@@ -49,7 +49,7 @@ function addNewImgOpen() {
       inactiveButtonClass: 'popup__button_disabled',
       inputErrorClass: 'popup__input_type_error',
       errorClass: 'popup__error_visible'
-    }, document.querySelector('.pupup__form_new-place'));
+    }, document.querySelector('.popup__form_new-place'));
     
     newPlaceFormValidator.enableValidation();
 }  
