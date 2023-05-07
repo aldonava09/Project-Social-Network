@@ -43,8 +43,8 @@
 .images-popup__item-close-button{
     width: 4%;
     height: auto;
-    max-width: 40px;
-    max-height: 40px;
+    max-width: 30px;
+    max-height: 30px;
     position: absolute;
     top: -5%;
     right: -5%;
