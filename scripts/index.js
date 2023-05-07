@@ -1,5 +1,4 @@
 import { Card } from "./card.js";
-//import{FormValidator} from "./formValidatior.js";//
 
 export const profileFormContainer = document.querySelector('.popup_edit-profile');
 export const editProfileButton = document.querySelector('.profile__edit-button');
@@ -92,21 +91,3 @@ newPlaceSubmitButton.addEventListener('click', function generateNewCards(){
 
     addNewCrad(initialCards);
 });
-
-/*const formSelectors = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
-};
-
-function validateForms (formSelectors) {
-  formSelectors.forEach((inputElement) => {
-    const form = new FormValidator(formSelectors, inputElement);
-    form.enableValidation();
-  });
-}
-
-validateForms(formSelectors);*/
