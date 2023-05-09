@@ -1,6 +1,7 @@
 .profile__image-container{
     display: flex;
     width: 13.8%;
+    min-height: 128px;
     overflow: hidden;
     border-radius: 50%;
 }

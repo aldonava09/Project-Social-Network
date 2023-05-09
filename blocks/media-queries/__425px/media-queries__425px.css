@@ -21,6 +21,7 @@
 
     .profile__image-container{
         width: 55%;
+        min-height: 166px;
         margin: auto;
     }
 

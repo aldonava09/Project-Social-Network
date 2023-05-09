@@ -1,5 +1,6 @@
-import {overlay, editProfileButton, closeProfileButton, profileFormContainer, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer} from "./index.js";
+import {overlay, editProfileButton, closeProfileButton, profileFormContainer, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, profileSubmitButton} from "./index.js";
 import { FormValidator } from "./formValidatior.js";
+import { newPlaceSubmitButton } from "./card.js";
 
 function editProfileOpen() {
     profileFormContainer.classList.toggle('popup_visible');
@@ -24,10 +25,13 @@ function editProfileOpen() {
     }, document.querySelector('.popup__form'));
       
     editProfileFormValidator.enableValidation();
+
+    document.getElementById("editProfileForm").reset();
 }
 
 editProfileButton.addEventListener('click', editProfileOpen);
 closeProfileButton.addEventListener('click', editProfileOpen);
+profileSubmitButton.addEventListener('click' , editProfileOpen);
 
 function addNewImgOpen() {
     newPlaceFormContainer.classList.toggle('popup_visible');
@@ -52,7 +56,10 @@ function addNewImgOpen() {
     }, document.querySelector('.popup__form_new-place'));
     
     newPlaceFormValidator.enableValidation();
+
+    document.getElementById("newPlaceForm").reset();
 }  
 
 addNewImgButton.addEventListener('click', addNewImgOpen);
 closeNewPlaceButton.addEventListener('click', addNewImgOpen);
+newPlaceSubmitButton.addEventListener('click', addNewImgOpen);

@@ -1,6 +1,33 @@
-import {overlay, imagesPopUpContainer} from "./index.js";
+import {overlay} from "./index.js";
 
-export class Card {
+const initialCards = [
+    {
+      name: 'Salt Lake City, Wyoming',
+      link: './images/wyomig.jpg'
+    },
+    {
+      name: 'Seattle, Washington',
+      link: './images/seattle.jpg'
+    },
+    {
+      name: 'San Francisco, California',
+      link: './images/san-fransisco.jpg'
+    },
+    {
+      name: 'Miami, Florida',
+      link: './images/miami.jpg'
+    },
+    {
+      name: 'Hollywood, Los Angeles',
+      link: './images/hollywood.jpg'
+    },
+    {
+      name: 'Nueva York, Nueva York',
+      link: './images/new-york.jpg'
+    },
+]; 
+
+class Card {
     constructor(data){
         this.name = data.name;
         this.link = data.link;
@@ -78,3 +105,39 @@ export class Card {
         });
     }
 };
+  
+function addCards(){
+    initialCards.forEach((el)=>{
+        const card = new Card(el);
+        const cardElement = card.generateCard();
+        document.querySelector('.cards').prepend(cardElement);
+    });
+};
+  
+const imagesPopUpContainer = document.querySelector('.images-popup');
+  
+addCards();
+
+const newPlaceSubmitButton = document.querySelector('.popup__button_new-place');
+  
+newPlaceSubmitButton.addEventListener('click', function generateNewCards(){
+    let newCardName = document.querySelector('.popup__input_title').value;
+    let newCradLink = document.querySelector('.popup__input_url').value;
+  
+    let newCard = {
+      name: newCardName,
+      link: newCradLink
+    };
+  
+    initialCards.push(newCard);
+  
+    function addNewCard(arr){
+        arr[arr.length -1] = new Card(arr[arr.length -1]);
+         const cardElement = arr[arr.length -1].generateCard();
+        document.querySelector('.cards').prepend(cardElement);
+    };
+  
+    addNewCard(initialCards);
+});
+
+export {newPlaceSubmitButton};
