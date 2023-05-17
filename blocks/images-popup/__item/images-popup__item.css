@@ -24,8 +24,8 @@
 .images-popup__item-image{
     width: 100%;
     height: auto;
-    max-width: 75vw;
-    max-height: 75vh;
+    max-width: 60vw;
+    max-height: 60vh;
 }
 
 .images-popup__item-title{

@@ -53,6 +53,6 @@ class FormValidator {
     });
     this._setEventListeners();
   }
-}
+};
 
 export { FormValidator };

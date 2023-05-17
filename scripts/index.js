@@ -1,25 +1,54 @@
-const profileFormContainer = document.querySelector('.popup_edit-profile');
-const editProfileButton = document.querySelector('.profile__edit-button');
-const closeProfileButton = document.querySelector('.popup__close-button_edit-profile');
-const overlay = document.querySelector('.overlay');
+import { PopupWithForm } from "./popup.js"; 
+import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, cardListSelector} from "./const.js";
+import { UserInfo } from "./userInfo.js";
+import {initialCards, handleCardClick, Card, generateNewCards} from "./card.js";
+import { Section } from "./section.js";
+import { FormValidator } from "./formValidatior.js";
 
-const profileName = document.querySelector('.profile__name');
-const profileProfession = document.querySelector('.profile__profession');
-const profileImage = document.querySelector('.profile__image');
-const profileNameInput = document.querySelector('.popup__input_name');
-const profileProfessionInput = document.querySelector('.popup__input_profession');
-const profileImageInput = document.querySelector('.popup__input_profile-image');
+const popupWithFormProfile = new PopupWithForm(profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, overlay);
+popupWithFormProfile.setEventListeners();
 
-profileName.textContent = 'Aldo Navarro';
-profileProfession.textContent = 'Programador';
-profileNameInput.value = profileName.textContent;
-profileProfessionInput.value = profileProfession.textContent;
-profileImage.src = './images/profile-pic.jpg'
+const userInfo = new UserInfo(profileName, profileProfession, profileNameInput, profileProfessionInput, profileSubmitButton);
+userInfo.setEventListeners();
 
-const profileSubmitButton = document.querySelector('.popup__button_edit-profile');
+const editProfileFormValidator = new FormValidator({
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}, document.querySelector('.popup__form'));
+
+editProfileFormValidator.enableValidation();
+
+const popupWithFormNewPLace = new PopupWithForm(newPlaceFormContainer, addNewImgButton, closeNewPlaceButton, newPlaceForm, newPlaceSubmitButton, overlay);
+popupWithFormNewPLace.setEventListeners();
+
+const newPlaceFormValidator = new FormValidator({
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}, document.querySelector('.popup__form_new-place'));
+
+newPlaceFormValidator.enableValidation();
+
+const initialCardList = new Section({
+  items: initialCards,
+  renderer: (el) => {
+    const card = new Card(el, handleCardClick);
+    const cardElement = card.generateCard();
+    return cardElement;
+  }
+}, cardListSelector);
+
+initialCardList.render();
+
+newPlaceSubmitButton.addEventListener('click', generateNewCards);
 
 /*Agregé la opcion de cambiar la foto de perfil, 
-aun que no viene en las indicaciones de la realizacion del proyecto. */
+aun que no viene en las indicaciones de la realizacion del proyecto, la utilizare posteriormente.
 
 function editProfileImage(profileImageInput){
   if(profileImageInput.value === undefined || profileImageInput.value === "") {
@@ -39,11 +68,4 @@ function editProfaileValues(evt) {
     profileProfessionInput.placeholder = "Profession";
     profileImageInput.placeholder = "Profile Image URL"
 };
-
-profileSubmitButton.addEventListener('click' , editProfaileValues);
-
-const addNewImgButton = document.querySelector('.profile__add-button-container');
-const closeNewPlaceButton = document.querySelector('.popup__close-button_new-place');
-const newPlaceFormContainer = document.querySelector('.popup_new-place');
-
-export {profileFormContainer, editProfileButton, closeProfileButton, overlay, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, profileSubmitButton};
+profileSubmitButton.addEventListener('click' , editProfaileValues);*/

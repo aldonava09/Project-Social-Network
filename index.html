@@ -15,13 +15,13 @@
    <section class="popup popup_edit-profile">
        <h2 class="popup__header">Edit Profile</h2>
        <img class="popup__close-button popup__close-button_edit-profile" src="./images/Close-button.png" alt="Close Button">
-       <form class="popup__form" id="editProfileForm" name="editProfile" novalidate>
+       <form class="popup__form popup__form_edit-profile" id="editProfileForm" name="editProfile" novalidate>
            <input class="popup__input popup__input_name" id="name" type="text" placeholder="Name" minlength="2" maxlength="40" required>
            <span class="popup__error popup__error_name"></span>
            <input class="popup__input popup__input_profession" id="profession" type="text" placeholder="Profesion" minlength="2" maxlength="200" required>
            <span class="popup__error popup__error_profession"></span>
-           <input class="popup__input popup__input_profile-image" id="profile-image" type="url" placeholder="Profile Image URL">
-           <span class="popup__error popup__error_profile-image"></span>
+           <!--<input class="popup__input popup__input_profile-image" id="profile-image" type="text" placeholder="Profile Image URL">
+           <span class="popup__error popup__error_profile-image"></span>-->
            <button class="popup__button popup__button_edit-profile" type="submit">Save</button>
        </form>
    </section>
@@ -69,20 +69,21 @@
        </template>
    </div>
    <div class="images-popup">
-       <template id="images-popup__template">
-           <div class="images-popup__item">
-               <img class="images-popup__item-image" src=" " alt="images-popup">
-               <h3 class="images-popup__item-title"></h3>
-               <img class="images-popup__item-close-button" src="./images/Close-button.png" alt="Close-button">
-           </div>
-       </template>
+        <div class="images-popup__item">
+            <img class="images-popup__item-image" src=" " alt="images-popup">
+            <h3 class="images-popup__item-title"></h3>
+            <img class="images-popup__item-close-button" src="./images/Close-button.png" alt="Close-button">
+        </div>
    </div>
    <footer class="footer">
        <h2 class="footer__text">Practicum © 2023. Aldo I. Navarro V</h2>
    </footer>
    <script src="./scripts/index.js" type="module"></script>
-   <script src="./scripts/utils.js" type="module"></script>
    <script src="./scripts/formValidatior.js" type="module"></script>
    <script src="./scripts/card.js" type="module"></script>
+   <script src="./scripts/section.js" type="module"></script>
+   <script src="./scripts/popup.js" type="module"></script>
+   <script src="./scripts/const.js" type="module"></script>
+   <script src="./scripts/userInfo.js" type="module"></script>
 </body>
 </html>

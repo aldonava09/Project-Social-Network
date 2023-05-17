@@ -1,4 +1,6 @@
-import {overlay} from "./index.js";
+import { overlay} from "./const.js";
+import { PopupWithImage } from "./popup.js";
+import { Section } from "./section.js";
 
 const initialCards = [
     {
@@ -27,117 +29,107 @@ const initialCards = [
     },
 ]; 
 
-class Card {
-    constructor(data){
-        this.name = data.name;
-        this.link = data.link;
-    }
+function handleCardClick(name, link) {
+    const popup = new PopupWithImage(document.querySelector('.images-popup__item'));
+    popup.open(link, name);
 
-    _getTemplate(){
-        const cardElement = document.querySelector("#card-template").content
-        .querySelector('.cards__card').cloneNode(true);
-
-        return cardElement;
-    }
-
-    generateCard(){
-        this.element = this._getTemplate();
-        this._setEventListeners();
-        this.element.querySelector('.cards__card-title').textContent = this.name;
-        this.element.querySelector('.cards__card-image').src = this.link;
-
-        return this.element;
-    }
+    const popupCloseButton = document.querySelector('.images-popup__item-close-button');
     
-    generatePopUp(){
-        const imagePopUp = document.querySelector('#images-popup__template').content
-        .querySelector('.images-popup__item').cloneNode(true);
+    popupCloseButton.addEventListener('click', () => {
+        popup.close();
+    });
 
-        return  imagePopUp;
-    }
+    document.addEventListener('keydown', (evt) => {
+        popup._handleEscClose(evt);
+    });
 
-    openPopUp() {
-        let imagePopUpItem = this.generatePopUp()
-        let popUpCloseButton = imagePopUpItem.querySelector('.images-popup__item-close-button');
-        imagePopUpItem.querySelector('.images-popup__item-image').src = this.link;;
-        imagePopUpItem.querySelector('.images-popup__item-title').textContent = this.name;
-        imagesPopUpContainer.prepend(imagePopUpItem);
-        overlay.classList.add('overlay-visible');
-        imagePopUpItem.classList.toggle('images-popup-item-visible');
-
-        popUpCloseButton.addEventListener('click', function closePopUp(){
-            overlay.classList.remove('overlay-visible');
-            imagePopUpItem.remove();
-        });
-      
-        overlay.addEventListener('click', function closePopUp(){
-            overlay.classList.remove('overlay-visible');
-            imagePopUpItem.remove();
-        });
-      
-        document.addEventListener('keydown', function (evt) {
-            if (evt.key === "Escape") {
-              overlay.classList.remove('overlay-visible');
-              imagePopUpItem.remove();
-        }});
-    }
-
-    likeButtonActive() {
-        this.element.querySelector('.cards__card-like-button-container').classList.toggle('cards__card-like-button-container_active');
-    }
-
-    deleteCard() {
-        const card = this.element.closest('.cards__card');
-        card.remove();
-    };
-
-    _setEventListeners() {
-        this.element.querySelector('.cards__card-image').addEventListener("click", () => {
-          this.openPopUp();
-        });
-
-        this.element.querySelector('.cards__card-like-button-container').addEventListener('click', () => {
-            this.likeButtonActive();
-        });
-        
-        this.element.querySelector('.cards__card-trash-button').addEventListener('click', () => {
-            this.deleteCard();
-        });
-    }
-};
-  
-function addCards(){
-    initialCards.forEach((el)=>{
-        const card = new Card(el);
-        const cardElement = card.generateCard();
-        document.querySelector('.cards').prepend(cardElement);
+    overlay.addEventListener('click', ()=> {
+        popup.close();
     });
 };
-  
-const imagesPopUpContainer = document.querySelector('.images-popup');
-  
-addCards();
 
-const newPlaceSubmitButton = document.querySelector('.popup__button_new-place');
+class Card {
+    constructor(data, handleCardClick) {
+      this.name = data.name;
+      this.link = data.link;
+      this.handleCardClick = handleCardClick;
+    }
   
-newPlaceSubmitButton.addEventListener('click', function generateNewCards(){
+    _getTemplate() {
+      const cardElement = document
+        .querySelector("#card-template")
+        .content.querySelector(".cards__card")
+        .cloneNode(true);
+  
+      return cardElement;
+    }
+  
+    generateCard() {
+      this.element = this._getTemplate();
+      this._setEventListeners();
+      this.element.querySelector(".cards__card-title").textContent = this.name;
+      this.element.querySelector(".cards__card-image").src = this.link;
+  
+      return this.element;
+    }
+  
+    likeButtonActive() {
+      this.element
+        .querySelector(".cards__card-like-button-container")
+        .classList.toggle("cards__card-like-button-container_active");
+    }
+  
+    deleteCard() {
+      const card = this.element.closest(".cards__card");
+      card.remove();
+    }
+  
+    _setEventListeners() {
+        this.element
+            .querySelector(".cards__card-like-button-container")
+            .addEventListener("click", () => {
+            this.likeButtonActive();
+        });
+  
+        this.element
+            .querySelector(".cards__card-trash-button")
+            .addEventListener("click", () => {
+            this.deleteCard();
+        });
+  
+        this.element
+            .querySelector(".cards__card-image")
+            .addEventListener("click", () => {
+            this.handleCardClick(this.name, this.link);
+        });
+    }
+};
+
+function generateNewCards() {
     let newCardName = document.querySelector('.popup__input_title').value;
-    let newCradLink = document.querySelector('.popup__input_url').value;
+    let newCardLink = document.querySelector('.popup__input_url').value;
   
     let newCard = {
       name: newCardName,
-      link: newCradLink
+      link: newCardLink
     };
   
     initialCards.push(newCard);
   
-    function addNewCard(arr){
-        arr[arr.length -1] = new Card(arr[arr.length -1]);
-         const cardElement = arr[arr.length -1].generateCard();
-        document.querySelector('.cards').prepend(cardElement);
-    };
+    function addNewCard(arr) {
+        const newCard = new Card(arr[arr.length - 1], handleCardClick);
+        const cardElement = newCard.generateCard();
+        const section = new Section(
+          {
+            items: [cardElement],
+            renderer: (item) => item
+          },
+          '.cards'
+        );
+        section.render();
+      }      
   
     addNewCard(initialCards);
-});
+};
 
-export {newPlaceSubmitButton};
+export {initialCards, handleCardClick, Card, generateNewCards};
