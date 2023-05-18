@@ -14,7 +14,6 @@ const newPlaceSubmitButton = document.querySelector('.popup__button_new-place');
 
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
-const profileImage = document.querySelector('.profile__image');
 const profileNameInput = document.querySelector('.popup__input_name');
 const profileProfessionInput = document.querySelector('.popup__input_profession');
 
@@ -22,7 +21,6 @@ profileName.textContent = 'Aldo Navarro';
 profileProfession.textContent = 'Programador';
 profileNameInput.value = profileName.textContent;
 profileProfessionInput.value = profileProfession.textContent;
-profileImage.src = './images/profile-pic.jpg';
 
 const cardListSelector = ".cards";
 

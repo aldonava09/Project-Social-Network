@@ -1,31 +1,37 @@
-import { overlay} from "./const.js";
-import { PopupWithImage } from "./popup.js";
+import { overlay } from "./const.js";
+import { PopupWithImage } from "./popupWithImage.js";
 import { Section } from "./section.js";
+import saltLakeCityImage from "../images/wyomig.jpg";
+import seattleImage from "../images/seattle.jpg";
+import sanFranciscoImage from "../images/san-fransisco.jpg";
+import miamiImage from "../images/miami.jpg";
+import hollywoodImage from "../images/hollywood.jpg";
+import newYorkImage from "../images/new-york.jpg";
 
 const initialCards = [
     {
       name: 'Salt Lake City, Wyoming',
-      link: './images/wyomig.jpg'
+      link: saltLakeCityImage
     },
     {
       name: 'Seattle, Washington',
-      link: './images/seattle.jpg'
+      link: seattleImage
     },
     {
       name: 'San Francisco, California',
-      link: './images/san-fransisco.jpg'
+      link: sanFranciscoImage
     },
     {
       name: 'Miami, Florida',
-      link: './images/miami.jpg'
+      link: miamiImage
     },
     {
       name: 'Hollywood, Los Angeles',
-      link: './images/hollywood.jpg'
+      link: hollywoodImage
     },
     {
       name: 'Nueva York, Nueva York',
-      link: './images/new-york.jpg'
+      link: newYorkImage
     },
 ]; 
 

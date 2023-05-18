@@ -1,9 +1,33 @@
-import { PopupWithForm } from "./popup.js"; 
-import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, cardListSelector} from "./const.js";
-import { UserInfo } from "./userInfo.js";
-import {initialCards, handleCardClick, Card, generateNewCards} from "./card.js";
-import { Section } from "./section.js";
-import { FormValidator } from "./formValidatior.js";
+import "./styles/index.css";
+import closeButonSrc from "./images/Close-button.png";
+import headerLogoSrc from "./images/Logo.svg";
+import profileImageSrc from "./images/profile-pic.jpg";
+import editButtonSrc from "./images/Edit-Button.svg";
+import addButtonSrc from "./images/Add-Button.svg";
+import { PopupWithForm } from "./components/popupWithForm.js"; 
+import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, cardListSelector} from "./components/const";
+import { UserInfo } from "./components/userInfo.js";
+import {initialCards, handleCardClick, Card, generateNewCards} from "./components/card.js";
+import { Section } from "./components/section.js";
+import { FormValidator } from "./components/formValidatior.js";
+
+const profileEditCloseButtonImage = document.getElementById("profileEditCloseButton");
+profileEditCloseButtonImage.src = closeButonSrc;
+
+const newPlaceCloseButtonImage = document.getElementById("newPlaceCloseButton");
+newPlaceCloseButtonImage.src = closeButonSrc;
+
+const headerLogoImage = document.getElementById("headerLogo");
+headerLogoImage.src = headerLogoSrc;
+
+const profileImage = document.getElementById("profileImage");
+profileImage.src = profileImageSrc;
+
+const editButtonImage = document.getElementById("editButon");
+editButtonImage.src = editButtonSrc;
+
+const addButtonImage = document.getElementById("addButton");
+addButtonImage.src = addButtonSrc;
 
 const popupWithFormProfile = new PopupWithForm(profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, overlay);
 popupWithFormProfile.setEventListeners();
