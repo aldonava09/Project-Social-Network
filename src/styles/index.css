@@ -1,6 +1,5 @@
 /* import vendor at-rules*/
 @import url(../vendor/normalize.css);
-@import url(../vendor/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf);
 
 /* import root at-rules*/
 @import url(../blocks/root/root.css);
