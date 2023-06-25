@@ -43,8 +43,8 @@
            <img class="profile__image" id="profileImage" alt="Foto de perfil">
        </div>
        <div class="profile__info">
-           <h1 class="profile__name">Aldo Navarro</h1>
-           <h3 class="profile__profession">Programador</h3>
+           <h1 class="profile__name"></h1>
+           <h3 class="profile__profession"></h3>
        </div>
        <img class="profile__edit-button" id="editButon" alt="Edit-Button">
        <div class="profile__add-button-container">
@@ -66,6 +66,11 @@
                </div>
            </div>
        </template>
+   </div>
+   <div class="popup popup_delete-card">
+        <h2 class="popup__header">Are you sure?</h2>
+        <img class="popup__close-button popup__close-button_delete-card"  src="<%=require('./images/Close-button.png')%>" alt="Close-button">
+        <button class="popup__button popup__button_delete-card" type="submit">Delete</button>
    </div>
    <div class="images-popup">
         <div class="images-popup__item">

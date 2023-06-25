@@ -6,10 +6,18 @@ import editButtonSrc from "./images/Edit-Button.svg";
 import addButtonSrc from "./images/Add-Button.svg";
 import { PopupWithForm } from "./components/popupWithForm.js"; 
 import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, cardListSelector} from "./components/const";
+import { Api } from "./components/api.js";
 import { UserInfo } from "./components/userInfo.js";
-import {initialCards, handleCardClick, Card, generateNewCards} from "./components/card.js";
+import {handleCardClick, handleDeleteCardClick, Card, generateNewCards} from "./components/card.js";
 import { Section } from "./components/section.js";
 import { FormValidator } from "./components/formValidatior.js";
+
+const userApiInfo = new Api("https://around.nomoreparties.co/v1/web_es_05/users/me");
+userApiInfo.getUserInfo();
+
+const initialCards = new Api("https://around.nomoreparties.co/v1/web_es_05/cards");
+initialCards.getInitialCards();
+
 
 const profileEditCloseButtonImage = document.getElementById("profileEditCloseButton");
 profileEditCloseButtonImage.src = closeButonSrc;
@@ -58,16 +66,24 @@ const newPlaceFormValidator = new FormValidator({
 
 newPlaceFormValidator.enableValidation();
 
-const initialCardList = new Section({
-  items: initialCards,
-  renderer: (el) => {
-    const card = new Card(el, handleCardClick);
-    const cardElement = card.generateCard();
-    return cardElement;
-  }
-}, cardListSelector);
 
+
+
+
+
+
+/*const initialCardList = new Section({
+    items: initialCards,
+    renderer: (el) => {
+      const card = new Card(el, handleCardClick, handleDeleteCardClick);
+      const cardElement = card.generateCard();
+      return cardElement;
+    }
+}, cardListSelector);
+  
 initialCardList.render();
+
+renderCards();*/
 
 newPlaceSubmitButton.addEventListener('click', generateNewCards);
 
@@ -93,3 +109,5 @@ function editProfaileValues(evt) {
     profileImageInput.placeholder = "Profile Image URL"
 };
 profileSubmitButton.addEventListener('click' , editProfaileValues);*/
+
+export {Api}; 

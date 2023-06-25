@@ -17,11 +17,6 @@ const profileProfession = document.querySelector('.profile__profession');
 const profileNameInput = document.querySelector('.popup__input_name');
 const profileProfessionInput = document.querySelector('.popup__input_profession');
 
-profileName.textContent = 'Aldo Navarro';
-profileProfession.textContent = 'Programador';
-profileNameInput.value = profileName.textContent;
-profileProfessionInput.value = profileProfession.textContent;
-
 const cardListSelector = ".cards";
 
 export {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, cardListSelector};

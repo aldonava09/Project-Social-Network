@@ -7,25 +7,43 @@ class UserInfo {
       this._submitButton = submitButton;
     }
   
-    getUserInfo() {
-      const name = this._nameElement.textContent;
-      const profession = this._professionElement.textContent;
-      return { name, profession };
-    }
-  
     setUserInfo() {
       this._nameElement.textContent = this._nameInput.value;
       this._professionElement.textContent = this._professionInput.value;
       this._nameInput.placeholder = "Name";
       this._professionInput.placeholder = "Profession";
     }
+
+    async editProfile() {
+      try {
+        const res = await fetch("https://around.nomoreparties.co/v1/web_es_05/users/me", {
+          method: "PATCH",
+          headers: {
+            authorization: "9ffaeb5f-3406-466e-a952-2ace02206b0c",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: this._nameInput.value,
+            about: this._professionInput.value
+          })
+        });
+  
+        if (res.ok) {
+          this.setUserInfo();
+        } else {
+          console.error(`Error: ${res.error}`);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
   
     setEventListeners(){
       this._submitButton.addEventListener('click', (evt) => {
         evt.preventDefault();
-        this.setUserInfo();
+        this.editProfile();
       });
     }
-  };
+  }; 
 
   export { UserInfo };
