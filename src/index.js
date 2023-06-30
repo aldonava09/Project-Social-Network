@@ -5,9 +5,10 @@ import profileImageSrc from "./images/profile-pic.jpg";
 import editButtonSrc from "./images/Edit-Button.svg";
 import addButtonSrc from "./images/Add-Button.svg";
 import { PopupWithForm } from "./components/popupWithForm.js"; 
-import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, cardListSelector} from "./components/const";
+import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileImageContainer, profileOverlay, profileImageEditCover, profilePictureFormContainer, closePopupProfileImageButton, profilePictureForm, profileImageSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, cardListSelector} from "./components/const.js";
 import { Api } from "./components/api.js";
 import { UserInfo } from "./components/userInfo.js";
+import { Popup } from "./components/popup.js";
 import {handleCardClick, handleDeleteCardClick, Card, generateNewCards} from "./components/card.js";
 import { Section } from "./components/section.js";
 import { FormValidator } from "./components/formValidatior.js";
@@ -15,9 +16,23 @@ import { FormValidator } from "./components/formValidatior.js";
 const userApiInfo = new Api("https://around.nomoreparties.co/v1/web_es_05/users/me");
 userApiInfo.getUserInfo();
 
+newPlaceSubmitButton.addEventListener('click', () =>{
+  const newCard = new Api("https://around.nomoreparties.co/v1/web_es_05/cards");
+  newCard.postNewCard();
+});
+
+profileImageContainer.addEventListener("mouseover", ()=>{
+  profileOverlay.classList.add("profile__image-overlay_visible");
+  profileImageEditCover.classList.add("profile__image-edit_visible")
+});
+
+profileImageContainer.addEventListener("mouseout", ()=>{
+  profileOverlay.classList.remove("profile__image-overlay_visible");
+  profileImageEditCover.classList.remove("profile__image-edit_visible")
+});
+
 const initialCards = new Api("https://around.nomoreparties.co/v1/web_es_05/cards");
 initialCards.getInitialCards();
-
 
 const profileEditCloseButtonImage = document.getElementById("profileEditCloseButton");
 profileEditCloseButtonImage.src = closeButonSrc;
@@ -66,11 +81,18 @@ const newPlaceFormValidator = new FormValidator({
 
 newPlaceFormValidator.enableValidation();
 
+const popupWithFormProfilePicture = new PopupWithForm(profilePictureFormContainer, profileImageContainer, closePopupProfileImageButton, profilePictureForm, profileImageSubmitButton, overlay);
+popupWithFormProfilePicture.setEventListeners();
 
+const profilePictureFormValidator = new FormValidator({
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}, document.querySelector('.popup__form_profile-picture'));
 
-
-
-
+profilePictureFormValidator.enableValidation();
 
 /*const initialCardList = new Section({
     items: initialCards,
@@ -85,7 +107,6 @@ initialCardList.render();
 
 renderCards();*/
 
-newPlaceSubmitButton.addEventListener('click', generateNewCards);
 
 /*Agregé la opcion de cambiar la foto de perfil, 
 aun que no viene en las indicaciones de la realizacion del proyecto, la utilizare posteriormente.

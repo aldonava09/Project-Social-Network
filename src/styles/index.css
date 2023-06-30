@@ -39,6 +39,9 @@
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 
+/*import images-popup at-rules*/
+@import url(../blocks/images-popup/__item/images-popup__item.css);
+
 /*import cards at-rules*/
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/cards/__card/crads__card.css);
@@ -48,9 +51,8 @@
 @import url(../blocks/cards/__card-info/cards__card-info.css);
 @import url(../blocks/cards/__card-title/cards__card-title.css);
 @import url(../blocks/cards/__card-like-button/cards__card-like-button.css);
-
-/*import images-popup at-rules*/
-@import url(../blocks/images-popup/__item/images-popup__item.css);
+@import url(../blocks/cards/__card-like-couter/cards__card-like-couter.css);
+@import url(../blocks/cards/__card-like-container/cards__card-like-container.css);
 
 /*import footer at-rules*/
 @import url(../blocks/footer/footer.css);

@@ -19,8 +19,6 @@
            <span class="popup__error popup__error_name"></span>
            <input class="popup__input popup__input_profession" id="profession" type="text" placeholder="Profesion" minlength="2" maxlength="200" required>
            <span class="popup__error popup__error_profession"></span>
-           <!--<input class="popup__input popup__input_profile-image" id="profile-image" type="text" placeholder="Profile Image URL">
-           <span class="popup__error popup__error_profile-image"></span>-->
            <button class="popup__button popup__button_edit-profile" type="submit">Save</button>
        </form>
    </section>
@@ -35,12 +33,23 @@
            <button class="popup__button popup__button_new-place" type="submit">Add</button>
        </form>
    </section>
+   <div class="popup popup_profile-picture">
+        <h2 class="popup__header">Edit Profile Picture</h2>
+        <img class="popup__close-button popup__close-button_profile-picture"  src="<%=require('./images/Close-button.png')%>" alt="Close-button">
+        <form class="popup__form popup__form_profile-picture" id="profilePictureForm" name="ProfilePicture" novalidate>
+            <input class="popup__input popup__input_url" id="url" type="url" placeholder="Image URL" required>
+            <span class="popup__error popup__error_url"></span>
+            <button class="popup__button popup__button_profile-picture" type="submit">Save</button>
+        </form>
+   </div>
    <div class="header">
        <img class="header__logo" id="headerLogo" alt="Logo Alrededor De USA">
    </div>
    <section class="profile">
        <div class="profile__image-container">
-           <img class="profile__image" id="profileImage" alt="Foto de perfil">
+            <div class="profile__image-overlay"></div>
+            <img class="profile__image-edit" src="<%=require('./images/edit-profile-picture.svg')%>" alt="Foto de perfil">
+            <img class="profile__image" id="profileImage" alt="Foto de perfil">
        </div>
        <div class="profile__info">
            <h1 class="profile__name"></h1>
@@ -62,7 +71,10 @@
                    <div class="cards__card-title-container">
                        <h2 class="cards__card-title"></h2>
                    </div>
-                   <div class="cards__card-like-button-container"></div>
+                   <div class="cards__card-like-container">
+                        <div class="cards__card-like-button"></div>
+                        <p class="cards__card-like-counter">0</p>
+                   </div>
                </div>
            </div>
        </template>
@@ -74,7 +86,7 @@
    </div>
    <div class="images-popup">
         <div class="images-popup__item">
-            <img class="images-popup__item-image" src=" " alt="images-popup">
+            <img class="images-popup__item-image" src="" alt="images-popup">
             <h3 class="images-popup__item-title"></h3>
             <img class="images-popup__item-close-button" src="<%=require('./images/Close-button.png')%>" alt="Close-button">
         </div>

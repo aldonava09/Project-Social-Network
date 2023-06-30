@@ -1,6 +1,7 @@
 .footer__text{
     margin: auto;
-    margin-top: 2%;
+    width: 68.8%;
+    padding-top: 2%;
     margin-bottom: 2%;
     font-family: 'Inter';
     font-style: normal;
@@ -9,4 +10,5 @@
     line-height: 1.14;
     text-align: center;
     color: #FFFFFF;
+    border-top: 1px solid #545454;
 }
