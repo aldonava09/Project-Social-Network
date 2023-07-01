@@ -1,11 +1,10 @@
-import { profileName, profileProfession, newCardNameInput, newCardLinkInput} from "./const.js"
+import { profileName, profileProfession, profilePicture, newCardNameInput, newCardLinkInput} from "./const.js"
 import { renderCards, generateNewCards } from "./card.js"
-
 
 class Api {
     constructor(options){
         this.options = options
-    }
+    };
   
     getUserInfo() {
         return fetch(this.options, {
@@ -22,6 +21,7 @@ class Api {
         .then((result)=>{
           profileName.textContent = result.name;
           profileProfession.textContent = result.about;
+          profilePicture.src = result.avatar;
         })
         .catch((err)=>{
           console.log(err);
@@ -46,9 +46,13 @@ class Api {
         .catch((err)=>{
           console.log(err);
         }); 
-    }
+    };
 
     postNewCard(){
+        const submitButton = document.getElementById('newPlaceSubmit');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Saving...';
+
         return fetch(this.options, {
             method: "POST",
             headers: {
@@ -67,17 +71,16 @@ class Api {
           return Promise.reject(`Error: ${res.status}`);
         })
         .then((result) => {
-          console.log(result); // Generar todas las tarjetas nuevamente con la función generateNewCards
-          return this.getInitialCards(); // Realizar una solicitud GET de las tarjetas actualizadas
-        })
-        .then((result) => {
-          const lastCard = result[result.length - 1]; // Obtener la última tarjeta del resultado
-          renderCards([lastCard]); // Renderizar solo la última tarjeta
+          generateNewCards(result)
         })
         .catch((error) => {
           console.error(error);
+        })
+        .finally(() => {
+          submitButton.textContent = originalButtonText;
         });
-      }
+    
+    };
 
     deleteCard(){
       return fetch(this.options, {
@@ -95,27 +98,7 @@ class Api {
       .catch ((error) => {
         console.error(error);
       });
-    }
-
-    getNewCard(){
-        return fetch("https://around.nomoreparties.co/v1/web_es_05/cards", {
-            headers: {
-                authorization: "9ffaeb5f-3406-466e-a952-2ace02206b0c"
-            }
-        })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            } 
-            return Promise.reject(`Error: ${res.status}`); 
-        })
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.log(err);
-        }); 
-    }
+    };
 
     likeCard(){
         return fetch(this.options, {
@@ -133,7 +116,7 @@ class Api {
       .catch ((error) => {
           console.error(error);
       });
-    }
+    };
 
     deleteLike(){
         return fetch(this.options, {
@@ -151,7 +134,7 @@ class Api {
       .catch ((error) => {
           console.error(error);
       });
-    }
-}
+    };
+};
 
 export {Api};

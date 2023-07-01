@@ -4,4 +4,8 @@
         bottom: auto;
         width: 50%;
     }
+
+    .profile__image-container{
+        height: 75px;
+    }
 }

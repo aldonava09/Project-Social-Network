@@ -29,7 +29,9 @@ class PopupWithForm extends Popup {
       });
   
       this._submitButton.addEventListener('click', () => {
-        this.close();
+        setTimeout(() => {
+          this.close();
+        }, 900);
       });
     }
 };

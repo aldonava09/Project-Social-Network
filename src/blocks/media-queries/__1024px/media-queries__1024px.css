@@ -1,4 +1,8 @@
 @media screen and (max-width:1024px){
+    .profile__image-container{
+        height: 90px;
+    }
+    
     .cards{
         justify-content: center;
         grid-template-columns: repeat(2 , 280px);

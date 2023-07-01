@@ -16,6 +16,8 @@ class UserInfo {
 
     async editProfile() {
       try {
+        this._submitButton.textContent = "Saving...";
+        
         const res = await fetch("https://around.nomoreparties.co/v1/web_es_05/users/me", {
           method: "PATCH",
           headers: {
@@ -35,6 +37,8 @@ class UserInfo {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        this._submitButton.textContent = "Save";
       }
     }
   
@@ -44,6 +48,6 @@ class UserInfo {
         this.editProfile();
       });
     }
-  }; 
+};
 
-  export { UserInfo };
+export { UserInfo };

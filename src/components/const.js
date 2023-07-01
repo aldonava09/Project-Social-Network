@@ -21,6 +21,9 @@ const closePopupProfileImageButton = document.querySelector('.popup__close-butto
 const profilePictureForm = document.getElementById("profilePictureForm");
 const profileImageSubmitButton = document.querySelector('.popup__button_profile-picture');
 
+const profilePicture = document.querySelector('.profile__image');
+const profilePictureInput = document.querySelector('.popup__input_profile-picture');
+
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const profileNameInput = document.querySelector('.popup__input_name');
@@ -31,4 +34,4 @@ const newCardLinkInput = document.querySelector('.popup__input_url');
 
 const cardListSelector = ".cards";
 
-export {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileImageContainer, profileOverlay, profileImageEditCover, profilePictureFormContainer, closePopupProfileImageButton, profilePictureForm, profileImageSubmitButton, profileName, profileProfession, profileNameInput, profileProfessionInput, newCardNameInput, newCardLinkInput, cardListSelector};
+export {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileImageContainer, profileOverlay, profileImageEditCover, profilePictureFormContainer, closePopupProfileImageButton, profilePictureForm, profileImageSubmitButton, profilePicture, profileName, profileProfession, profilePictureInput, profileNameInput, profileProfessionInput, newCardNameInput, newCardLinkInput, cardListSelector};
