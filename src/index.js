@@ -4,18 +4,25 @@ import headerLogoSrc from "./images/Logo.svg";
 import editButtonSrc from "./images/Edit-Button.svg";
 import addButtonSrc from "./images/Add-Button.svg";
 import { PopupWithForm } from "./components/popupWithForm.js"; 
-import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileImageContainer, profileOverlay, profileImageEditCover, profilePictureFormContainer, closePopupProfileImageButton, profilePictureForm, profileImageSubmitButton, profilePicture, profileName, profileProfession, profilePictureInput, profileNameInput, profileProfessionInput} from "./components/const.js";
+import {overlay, profileFormContainer, editProfileButton, closeProfileButton, profileForm, profileSubmitButton, addNewImgButton, closeNewPlaceButton, newPlaceFormContainer, newPlaceForm, newPlaceSubmitButton, profileImageContainer, profileOverlay, profileImageEditCover, profilePictureFormContainer, closePopupProfileImageButton, profilePictureForm, profileImageSubmitButton, profilePicture, profileName, profileProfession, profilePictureInput, profileNameInput, profileProfessionInput, newCardNameInput, newCardLinkInput} from "./components/const.js";
 import { Api } from "./components/api.js";
 import { UserInfo } from "./components/userInfo.js";
 import { UserPicture } from "./components/userPicture.js";
 import { FormValidator } from "./components/formValidatior.js";
+
+
+function renderInitialUserInfo(result) {
+  profileName.textContent = result.name;
+  profileProfession.textContent = result.about;
+  profilePicture.src = result.avatar;
+}; 
 
 const userApiInfo = new Api("https://around.nomoreparties.co/v1/web_es_05/users/me");
 userApiInfo.getUserInfo();
 
 newPlaceSubmitButton.addEventListener('click', () =>{
   const newCard = new Api("https://around.nomoreparties.co/v1/web_es_05/cards");
-  newCard.postNewCard();
+  newCard.postNewCard(newCardNameInput, newCardLinkInput);
 });
 
 profileImageContainer.addEventListener("mouseover", ()=>{
@@ -90,3 +97,5 @@ const profilePictureFormValidator = new FormValidator({
 }, document.querySelector('.popup__form_profile-picture'));
 
 profilePictureFormValidator.enableValidation();
+
+export {renderInitialUserInfo}; 
