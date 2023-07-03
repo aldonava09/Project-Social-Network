@@ -15,7 +15,15 @@ function renderInitialUserInfo(result) {
   profileName.textContent = result.name;
   profileProfession.textContent = result.about;
   profilePicture.src = result.avatar;
-}; 
+};
+
+function changeButtonText(buttonSelector, newText) {
+  buttonSelector.textContent = newText;
+}
+
+function restoreOriginalButtonText(buttonSelector, originalText) {
+  buttonSelector.textContent = originalText;
+}
 
 const userApiInfo = new Api("https://around.nomoreparties.co/v1/web_es_05/users/me");
 userApiInfo.getUserInfo();
@@ -98,4 +106,4 @@ const profilePictureFormValidator = new FormValidator({
 
 profilePictureFormValidator.enableValidation();
 
-export {renderInitialUserInfo}; 
+export {renderInitialUserInfo, changeButtonText, restoreOriginalButtonText}; 

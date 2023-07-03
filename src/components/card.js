@@ -4,7 +4,7 @@ import { Section } from "./section.js";
 import { cardListSelector } from "./const.js";
 import { Api } from "./api.js";
 import { Popup } from "./popup.js";
-
+import { changeButtonText, restoreOriginalButtonText } from "../index.js";
 function handleCardClick(name, link) {
     const popup = new PopupWithImage(document.querySelector('.images-popup__item'));
     popup.open(link, name);
@@ -46,28 +46,15 @@ function handleDeleteCardClick(element){
   deleteCardButton.addEventListener('click', async () => {
     const card = element.closest(".cards__card");
     const originalButtonText = deleteCardButton.textContent;
-    deleteCardButton.textContent = 'Deleting...';
   
-    try {
-      const res = await fetch(`https://around.nomoreparties.co/v1/web_es_05/cards/${this.id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: "9ffaeb5f-3406-466e-a952-2ace02206b0c",
-        },
-      });
-  
-      if (res.status === 200) {
-        card.remove();
-        console.log("Tarjeta borrada");
-        popupDelete.close();
-      } else {
-        throw new Error(`Error: ${res.status}`);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      deleteCardButton.textContent = originalButtonText;
-    }
+    changeButtonText(deleteCardButton, 'Deleting...');
+
+    const api = new Api(`https://around.nomoreparties.co/v1/web_es_05/cards/${this.id}`);
+    await api.deleteCard();
+    card.remove();
+    popupDelete.close();
+
+    restoreOriginalButtonText(deleteCardButton, originalButtonText);
   });
 }
 
@@ -98,7 +85,7 @@ class Card {
       this.element.querySelector(".cards__card-image").src = this.link;
       this.element.querySelector(".cards__card-like-counter").textContent = this.likes.length;
       this.verifyUserCard();
-      this.hasLike();
+      this.verifyLike();
 
       return this.element;
     }
@@ -110,7 +97,7 @@ class Card {
       }
     }
 
-    hasLike(){
+    verifyLike(){
       const isLiked = this.likes.some(like => like.name === document.querySelector(".profile__name").textContent);
       if (isLiked) {
         this.element.querySelector(".cards__card-like-button")
@@ -132,16 +119,14 @@ class Card {
     likeAndDislikeCard(){
       const likeButton = this.element.querySelector(".cards__card-like-button");
       const likeCounter = this.element.querySelector(".cards__card-like-counter");
+      let currentCount = parseInt(likeCounter.textContent);
+      const likeCard = new Api(`https://around.nomoreparties.co/v1/web_es_05/cards/likes/${this.id}`);
 
         if (likeButton.classList.contains("cards__card-like-button_active")) {
-          const likeCard = new Api(`https://around.nomoreparties.co/v1/web_es_05/cards/likes/${this.id}`);
           likeCard.likeCard();
-          let currentCount = parseInt(likeCounter.textContent);
           likeCounter.textContent = currentCount + 1;
         } else {
-          const dislikeCard = new Api(`https://around.nomoreparties.co/v1/web_es_05/cards/likes/${this.id}`);
-          dislikeCard.deleteLike();
-          let currentCount = parseInt(likeCounter.textContent);
+          likeCard.deleteLike();
           likeCounter.textContent = currentCount - 1;
         }
     }

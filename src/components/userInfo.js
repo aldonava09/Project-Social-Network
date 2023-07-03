@@ -1,3 +1,6 @@
+import { Api } from "./api.js";
+import { changeButtonText, restoreOriginalButtonText } from "../index.js";
+
 class UserInfo {
     constructor(nameSelector, professionSelector, nameInput, professionInput, submitButton) {
       this._nameElement = nameSelector;
@@ -6,7 +9,7 @@ class UserInfo {
       this._professionInput = professionInput;
       this._submitButton = submitButton;
     }
-  
+
     setUserInfo() {
       this._nameElement.textContent = this._nameInput.value;
       this._professionElement.textContent = this._professionInput.value;
@@ -15,31 +18,14 @@ class UserInfo {
     }
 
     async editProfile() {
-      try {
-        this._submitButton.textContent = "Saving...";
-        
-        const res = await fetch("https://around.nomoreparties.co/v1/web_es_05/users/me", {
-          method: "PATCH",
-          headers: {
-            authorization: "9ffaeb5f-3406-466e-a952-2ace02206b0c",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            name: this._nameInput.value,
-            about: this._professionInput.value
-          })
-        });
-  
-        if (res.ok) {
-          this.setUserInfo();
-        } else {
-          console.error(`Error: ${res.error}`);
-        }
-      } catch (error) {
-        console.error(error);
-      } finally {
-        this._submitButton.textContent = "Save";
-      }
+        const originalButtonText = this._submitButton.textContent;
+        changeButtonText(this._submitButton, "Saving...");
+
+        const userApi = new Api("https://around.nomoreparties.co/v1/web_es_05/users/me");
+        await userApi.editUserInfo(this._nameInput, this._professionInput);
+
+        this.setUserInfo();
+        restoreOriginalButtonText(this._submitButton, originalButtonText);
     }
   
     setEventListeners(){
