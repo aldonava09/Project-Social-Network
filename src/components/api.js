@@ -1,16 +1,14 @@
 import { authorizationToken } from "./const.js"
-import { renderCards, generateNewCards } from "./card.js"
-import { renderInitialUserInfo, changeButtonText, restoreOriginalButtonText } from "../index.js"
 
 class Api {
   constructor(options) {
-    this.options = options;
+    this.options = options
     this.headers = {
       authorization: authorizationToken,
       "Content-Type": "application/json",
     };
   }
-
+ 
   fetchData(url, method = "GET", body = null) {
     const requestOptions = {
       method: method,
@@ -33,83 +31,77 @@ class Api {
       });
   }
 
-  getUserInfo() {
-    return this.fetchData(this.options)
+  getUserInfo(endPoint) {
+    return this.fetchData(`${this.options}/${endPoint}`)
       .then((result) => {
-        renderInitialUserInfo(result);
+        return result;
       });
   }
 
-  editUserInfo(profileNameInput, profileProfessionInput) {
+  editUserInfo(profileNameInput, profileProfessionInput, endPoint) {
     const body = {
         name: profileNameInput.value,
         about: profileProfessionInput.value
     };
 
-    return this.fetchData(this.options, "PATCH", body)
+    return this.fetchData(`${this.options}/${endPoint}`, "PATCH", body)
       .then((result) => {
         return result;
     });
   }
 
-  editUserPicture(profilePictureInput) {
+  editUserPicture(profilePictureInput, endPoint) {
     const body = {
         avatar: profilePictureInput.value,
     };
 
-    return this.fetchData(this.options, "PATCH", body)
+    return this.fetchData(`${this.options}/${endPoint}`, "PATCH", body)
       .then((result) => {
         return result;
     });
   }
 
-  getInitialCards() {
-    return this.fetchData(this.options)
+  getInitialCards(endPoint) {
+    return this.fetchData(`${this.options}/${endPoint}`)
       .then((result) => {
-        renderCards(result);
+        return result;
       });
   }
 
-  postNewCard(newCardNameInput, newCardLinkInput) {
-    const submitButton = document.getElementById("newPlaceSubmit");
-    const originalButtonText = submitButton.textContent;
-
-    changeButtonText(submitButton, "Saving...");
-
+  postNewCard(newCardNameInput, newCardLinkInput, endPoint) {
     const body = {
       name: newCardNameInput.value,
       link: newCardLinkInput.value,
     };
 
-    return this.fetchData(this.options, "POST", body)
+    return this.fetchData(`${this.options}/${endPoint}`, "POST", body)
       .then((result) => {
-        generateNewCards(result);
+        return result;
       })
-      .finally(() => {
-        restoreOriginalButtonText(submitButton, originalButtonText);
-      });
   }
 
-  deleteCard() {
-    return this.fetchData(this.options, "DELETE")
+  deleteCard(endPoint) {
+    return this.fetchData(`${this.options}/${endPoint}`, "DELETE")
     .then((result) => {
       return result;
     });
   }
 
-  likeCard() {
-    return this.fetchData(this.options, "PUT")
+  likeCard(endPoint) {
+    return this.fetchData(`${this.options}/${endPoint}`, "PUT")
       .then((result) => {
         return result;
       });
   }
 
-  deleteLike() {
-    return this.fetchData(this.options, "DELETE")
+  deleteLike(endPoint) {
+    return this.fetchData(`${this.options}/${endPoint}`, "DELETE")
       .then((result) => {
         return result;
       });
   }
 }
 
-export {Api};
+const apiInstance = new Api("https://around.nomoreparties.co/v1/web_es_05");
+
+export {apiInstance};

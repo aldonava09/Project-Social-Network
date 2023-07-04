@@ -1,4 +1,4 @@
-import { Api } from "./api.js";
+import { apiInstance } from "./api.js";
 import { changeButtonText, restoreOriginalButtonText } from "../index.js";
 
 class UserInfo {
@@ -21,8 +21,7 @@ class UserInfo {
         const originalButtonText = this._submitButton.textContent;
         changeButtonText(this._submitButton, "Saving...");
 
-        const userApi = new Api("https://around.nomoreparties.co/v1/web_es_05/users/me");
-        await userApi.editUserInfo(this._nameInput, this._professionInput);
+        await apiInstance.editUserInfo(this._nameInput, this._professionInput, "users/me");
 
         this.setUserInfo();
         restoreOriginalButtonText(this._submitButton, originalButtonText);

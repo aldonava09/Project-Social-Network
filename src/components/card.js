@@ -2,7 +2,7 @@ import { overlay } from "./const.js";
 import { PopupWithImage } from "./popupWithImage.js";
 import { Section } from "./section.js";
 import { cardListSelector } from "./const.js";
-import { Api } from "./api.js";
+import { apiInstance } from "./api.js";
 import { Popup } from "./popup.js";
 import { changeButtonText, restoreOriginalButtonText } from "../index.js";
 function handleCardClick(name, link) {
@@ -49,8 +49,7 @@ function handleDeleteCardClick(element){
   
     changeButtonText(deleteCardButton, 'Deleting...');
 
-    const api = new Api(`https://around.nomoreparties.co/v1/web_es_05/cards/${this.id}`);
-    await api.deleteCard();
+    await apiInstance.deleteCard(`cards/${this.id}`);
     card.remove();
     popupDelete.close();
 
@@ -120,13 +119,12 @@ class Card {
       const likeButton = this.element.querySelector(".cards__card-like-button");
       const likeCounter = this.element.querySelector(".cards__card-like-counter");
       let currentCount = parseInt(likeCounter.textContent);
-      const likeCard = new Api(`https://around.nomoreparties.co/v1/web_es_05/cards/likes/${this.id}`);
 
         if (likeButton.classList.contains("cards__card-like-button_active")) {
-          likeCard.likeCard();
+          apiInstance.likeCard(`cards/likes/${this.id}`);
           likeCounter.textContent = currentCount + 1;
         } else {
-          likeCard.deleteLike();
+          apiInstance.deleteLike(`cards/likes/${this.id}`);
           likeCounter.textContent = currentCount - 1;
         }
     }

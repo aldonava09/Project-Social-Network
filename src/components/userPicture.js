@@ -1,4 +1,4 @@
-import { Api } from "./api.js";
+import { apiInstance } from "./api.js";
 import { changeButtonText, restoreOriginalButtonText } from "../index.js";
 
 class UserPicture {
@@ -16,8 +16,7 @@ class UserPicture {
       const originalButtonText = this._submitButton.textContent;
       changeButtonText(this._submitButton, "Saving...");
 
-      const userPictureApi = new Api("https://around.nomoreparties.co/v1/web_es_05/users/me/avatar");
-      await userPictureApi.editUserPicture(this._profilePictureInput);
+      await apiInstance.editUserPicture(this._profilePictureInput, "users/me/avatar");
 
       this.setUserPicture();
       restoreOriginalButtonText(this._submitButton, originalButtonText);
