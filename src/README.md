@@ -14,7 +14,7 @@ Este proyecto es una red social que ha sido desarrollado utilizando HTML, CSS y 
 
 ## Instalación y configuración
 
-1. Clona el repositorio en tu máquina local: `git clone https://github.com/tu-usuario/nombre-del-repo.git`
+1. Clona el repositorio en tu máquina local: `git clone https://github.com/aldonava09/Project-Social-Network.git`
 2. Abre el proyecto en tu editor de código preferido.
 3. Abre una terminal en la carpeta raíz del proyecto.
 4. Ejecuta el siguiente comando para instalar las dependencias: `npm install`

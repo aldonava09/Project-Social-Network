@@ -14,7 +14,7 @@ This project is a social network that has been developed using HTML, CSS, and Ja
 
 ## Installation and Setup
 
-1. Clone the repository to your local machine: `git clone https://github.com/your-username/repository-name.git`
+1. Clone the repository to your local machine: `git clone https://github.com/aldonava09/Project-Social-Network.git`
 2. Open the project in your preferred code editor.
 3. Open a terminal in the project's root directory.
 4. Run the following command to install dependencies: `npm install`
