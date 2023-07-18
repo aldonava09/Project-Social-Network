@@ -23,11 +23,9 @@ This project is a social network that has been developed using HTML, CSS, and Ja
 
 ## Usage
 
-1. Log in with your existing user account or create a new one.
-2. Explore different sections of the social network, such as the news feed, user profiles, etc.
-3. Interact with other users through posts, comments, and private messages.
-4. Update your profile and adjust preferences according to your needs.
-5. Enjoy the social network experience in your own clone.
+1. Explore the different sections of the social network.
+2. Update your profile and adjust your preferences according to your needs.
+3. Enjoy the experience of a social network in your own clone.
 
 ## Figma
 

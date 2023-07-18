@@ -23,11 +23,9 @@ Este proyecto es una red social que ha sido desarrollado utilizando HTML, CSS y 
 
 ## Uso
 
-1. Inicia sesión con tu cuenta de usuario existente o crea una nueva.
-2. Explora las diferentes secciones de la red social, como el feed de noticias, los perfiles de usuarios, etc.
-3. Interactúa con otros usuarios mediante publicaciones, comentarios y mensajes privados.
-4. Actualiza tu perfil y ajusta tus preferencias según tus necesidades.
-5. Disfruta de la experiencia de una red social en tu propio clon.
+1. Explora las diferentes secciones de la red social.
+2. Actualiza tu perfil y ajusta tus preferencias según tus necesidades.
+3. Disfruta de la experiencia de una red social en tu propio clon.
 
 ## Figma
 
