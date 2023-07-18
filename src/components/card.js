@@ -93,6 +93,7 @@ class Card {
       if (this.ownerName === document.querySelector(".profile__name").textContent) {
         this.element.querySelector(".cards__card-trash-button")
           .classList.add("cards__card-trash-button_visible");
+        this.element.classList.add("cards__card_visible");
       }
     }
 

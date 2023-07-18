@@ -3,4 +3,9 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    display: none;
+}
+
+.cards__card_visible{
+    display: block;
 }
